@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export interface SectionData {
+    id: string;
+    title: string;
+    content: React.ReactNode;
 }
 
-export default App
+const App: React.FC = () => {
+
+    // const sections: SectionData[] = [
+    //     {id: 'home', title: t("home-title"), content: <HomeSection/>},
+    //     {id: 'goals', title: t("goals-title"), content: <GoalsSection/>},
+    //     {id: 'motivation', title: t("motivation-title"), content: <MotivationSection/>},
+    //     {id: 'achievements', title: t("achievements-title"), content: <AchievementsSection/>},
+    //     {id: 'clients', title: t("clients-title"), content: <HorizontalGallery/>},
+    //     {id: 'contacts', title: t("contacts-title"), content: <ContactsSection/>}
+    // ];
+
+    return (
+        <>
+            <div>
+                1
+            </div>
+            <div>
+                2
+            </div>
+            <div>
+                3
+            </div>
+        </>
+    )
+}
+
+
+export default App;
