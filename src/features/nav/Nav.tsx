@@ -1,111 +1,156 @@
-import { useState, useRef, useEffect } from "react"
-import { useTranslation } from "react-i18next"
-import { selectNavItems } from "../../entities/section/model/selectors"
-import { useActiveSection } from "../../entities/section/model/useActiveSection"
-
-const LANGS = [
-    { code: "ua", label: "UA" },
-    { code: "en", label: "EN" },
-    { code: "ru", label: "RU" }
-] as const
+import { NavLink, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { ChevronDown } from 'lucide-react'
 
 export function Nav() {
-    const { t, i18n } = useTranslation()
-    const items = selectNavItems()
-    const activeId = useActiveSection()
+    const { i18n } = useTranslation()
+    const location = useLocation()
 
-    const [open, setOpen] = useState(false)
-    const ref = useRef<HTMLDivElement>(null)
+    const isServicesActive = location.pathname.startsWith('/services')
+    const isGalleryActive = location.pathname.startsWith('/gallery')
 
-    // закрытие по клику вне
-    useEffect(() => {
-        const handler = (e: MouseEvent) => {
-            if (!ref.current?.contains(e.target as Node)) {
-                setOpen(false)
-            }
-        }
-        document.addEventListener("mousedown", handler)
-        return () => document.removeEventListener("mousedown", handler)
-    }, [])
+    const navItem =
+        'relative flex h-full items-center gap-1 px-1 transition-colors hover:text-blue-600'
 
-    const currentLang =
-        LANGS.find((l) => l.code === i18n.language) ?? LANGS[0]
+    const activeUnderline =
+        'after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-blue-600 after:content-[""]'
 
     return (
-        <nav className="flex items-center gap-10 text-sm font-medium">
-            {/* links */}
-            <div className="flex gap-8 text-slate-700">
-                {items.map((item) => {
-                    const isActive = item.id === activeId
+        <nav className="fixed top-0 z-50 w-full border-b bg-white/80 backdrop-blur">
+            <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 text-sm font-medium">
 
-                    return (
-                        <a
-                            key={item.id}
-                            href={`#${item.id}`}
-                            className={`
-                                relative transition-colors
-                                ${isActive
-                                ? "text-slate-900"
-                                : "hover:text-slate-900"}
-                                after:absolute after:left-0 after:-bottom-1
-                                after:h-[1px] after:bg-slate-900
-                                after:transition-all
-                                ${isActive
-                                ? "after:w-full"
-                                : "after:w-0 hover:after:w-full"}
-                            `}
-                        >
-                            {t(item.labelKey)}
-                        </a>
-                    )
-                })}
-            </div>
+                {/* ЛЕВАЯ ЧАСТЬ — МЕНЮ */}
+                <div className="flex h-full items-center gap-8">
 
-            {/* language dropdown */}
-            <div ref={ref} className="relative">
-                <button
-                    onClick={() => setOpen((v) => !v)}
-                    className="
-                        text-xs uppercase tracking-wide
-                        text-slate-500 hover:text-slate-900
-                        transition-colors
-                        flex items-center gap-1
-                    "
-                >
-                    {currentLang.label}
-                    <span className="text-[10px]">▾</span>
-                </button>
-
-                {open && (
-                    <div
-                        className="
-                            absolute right-0 mt-2
-                            min-w-[48px]
-                            rounded-md border border-slate-200
-                            bg-white shadow-sm
-                            overflow-hidden
-                        "
+                    <NavLink
+                        to="/"
+                        end
+                        className={({ isActive }) =>
+                            `${navItem} ${isActive ? activeUnderline : ''}`
+                        }
                     >
-                        {LANGS.map((lang) => (
-                            <button
-                                key={lang.code}
-                                onClick={() => {
-                                    i18n.changeLanguage(lang.code)
-                                    setOpen(false)
-                                }}
+                        Головна
+                    </NavLink>
+
+                    {/* УСЛУГИ */}
+                    <div className="relative group flex h-full items-center">
+                        <NavLink
+                            to="/services"
+                            className={`${navItem} ${isServicesActive ? activeUnderline : ''}`}
+                        >
+                            Послуги
+                            <ChevronDown
+                                size={16}
                                 className={`
-                                    w-full px-3 py-1.5 text-left text-xs
-                                    transition-colors
-                                    ${lang.code === i18n.language
-                                    ? "bg-slate-100 text-slate-900"
-                                    : "hover:bg-slate-50"}
+                                    transition-transform duration-200
+                                    ${isServicesActive ? 'rotate-180' : 'group-hover:rotate-180'}
                                 `}
+                            />
+                        </NavLink>
+
+                        <div className="absolute left-0 top-full hidden min-w-48 rounded-md border bg-white shadow-md group-hover:block">
+                            <NavLink
+                                to="/services/starters"
+                                className={({ isActive }) =>
+                                    `block px-4 py-2 hover:bg-gray-100 ${
+                                        isActive ? 'bg-gray-100 font-semibold' : ''
+                                    }`
+                                }
                             >
-                                {lang.label}
-                            </button>
-                        ))}
+                                Ремонт стартерів
+                            </NavLink>
+
+                            <NavLink
+                                to="/services/generators"
+                                className={({ isActive }) =>
+                                    `block px-4 py-2 hover:bg-gray-100 ${
+                                        isActive ? 'bg-gray-100 font-semibold' : ''
+                                    }`
+                                }
+                            >
+                                Ремонт генераторів
+                            </NavLink>
+                        </div>
                     </div>
-                )}
+
+                    {/* ГАЛЕРЕЯ */}
+                    <div className="relative group flex h-full items-center">
+                        <NavLink
+                            to="/gallery"
+                            className={`${navItem} ${isGalleryActive ? activeUnderline : ''}`}
+                        >
+                            Галерея
+                            <ChevronDown
+                                size={16}
+                                className={`
+                                    transition-transform duration-200
+                                    ${isGalleryActive ? 'rotate-180' : 'group-hover:rotate-180'}
+                                `}
+                            />
+                        </NavLink>
+
+                        <div className="absolute left-0 top-full hidden min-w-48 rounded-md border bg-white shadow-md group-hover:block">
+                            <NavLink
+                                to="/gallery/equipment"
+                                className={({ isActive }) =>
+                                    `block px-4 py-2 hover:bg-gray-100 ${
+                                        isActive ? 'bg-gray-100 font-semibold' : ''
+                                    }`
+                                }
+                            >
+                                Наше обладнання
+                            </NavLink>
+
+                            <NavLink
+                                to="/gallery/before-after"
+                                className={({ isActive }) =>
+                                    `block px-4 py-2 hover:bg-gray-100 ${
+                                        isActive ? 'bg-gray-100 font-semibold' : ''
+                                    }`
+                                }
+                            >
+                                До / Після
+                            </NavLink>
+                        </div>
+                    </div>
+
+                    <NavLink
+                        to="/payment-delivery"
+                        className={({ isActive }) =>
+                            `${navItem} ${isActive ? activeUnderline : ''}`
+                        }
+                    >
+                        Оплата / Доставка
+                    </NavLink>
+
+                    <NavLink
+                        to="/contacts"
+                        className={({ isActive }) =>
+                            `${navItem} ${isActive ? activeUnderline : ''}`
+                        }
+                    >
+                        Контакти
+                    </NavLink>
+                </div>
+
+                {/* ПРАВАЯ ЧАСТЬ — ЯЗЫК */}
+                <div className="flex items-center gap-2">
+                    <button
+                        onClick={() => i18n.changeLanguage('ua')}
+                        className={i18n.language === 'ua' ? 'font-bold' : 'opacity-60'}
+                    >
+                        UA
+                    </button>
+
+                    <span className="opacity-30">|</span>
+
+                    <button
+                        onClick={() => i18n.changeLanguage('ru')}
+                        className={i18n.language === 'ru' ? 'font-bold' : 'opacity-60'}
+                    >
+                        RU
+                    </button>
+                </div>
             </div>
         </nav>
     )

@@ -1,9 +1,11 @@
-import {HomePage} from "../pages/HomePage.tsx";
+import { RouterProvider } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
+import { router } from './router'
 
-function App() {
+export function App() {
     return (
-        <HomePage />
+        <HelmetProvider>
+            <RouterProvider router={router} />
+        </HelmetProvider>
     )
 }
-
-export default App

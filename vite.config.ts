@@ -1,8 +1,13 @@
-import {defineConfig} from 'vite'
+import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'node:path'
 
-// https://vite.dev/config/
 export default defineConfig({
+    base: '/sto-site/',
     plugins: [react()],
-    base: '/sto-site/', // ТОЧНО имя репозитория
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'src'),
+        },
+    },
 })
