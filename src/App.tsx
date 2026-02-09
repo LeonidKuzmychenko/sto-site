@@ -18,6 +18,12 @@ const App: React.FC = () => {
 
     return (
         <>
+            <div className="min-h-screen flex items-center justify-center bg-zinc-900 text-white">
+                <h1 className="text-4xl font-bold">Tailwind OK</h1>
+            </div>
+            <div>
+                <h1>Tailwind OK</h1>
+            </div>
             <div>
                 1
             </div>
