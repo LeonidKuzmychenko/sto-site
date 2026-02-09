@@ -1,44 +1,120 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { ChevronDown } from 'lucide-react'
 
 export function Nav() {
+    const { i18n } = useTranslation()
+    const location = useLocation()
+
+    const isServicesActive = location.pathname.startsWith('/services')
+
+    const navItem =
+        'relative flex h-full items-center gap-1 px-1 transition-colors hover:text-blue-600'
+
+    const activeUnderline =
+        'after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-blue-600 after:content-[""]'
+
     return (
         <nav className="fixed top-0 z-50 w-full border-b bg-white/80 backdrop-blur">
-            <div className="mx-auto flex h-16 max-w-6xl items-center gap-8 px-4 text-sm font-medium">
+            <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 text-sm font-medium">
 
-                <NavLink to="/" end>
-                    Главная
-                </NavLink>
+                {/* ЛЕВАЯ ЧАСТЬ — МЕНЮ */}
+                <div className="flex h-full items-center gap-8">
 
-                {/* УСЛУГИ С DROPDOWN */}
-                <div className="relative group">
-                    <NavLink to="/services">
-                        Услуги
+                    <NavLink
+                        to="/"
+                        end
+                        className={({ isActive }) =>
+                            `${navItem} ${isActive ? activeUnderline : ''}`
+                        }
+                    >
+                        Головна
                     </NavLink>
 
-                    <div className="absolute left-0 top-full hidden min-w-48 rounded-md border bg-white shadow-md group-hover:block">
+                    {/* УСЛУГИ + СТРЕЛКА */}
+                    <div className="relative group flex h-full items-center">
                         <NavLink
-                            to="/services/starters"
-                            className="block px-4 py-2 hover:bg-gray-100"
+                            to="/services"
+                            className={`${navItem} ${isServicesActive ? activeUnderline : ''}`}
                         >
-                            Стартеры
+                            Послуги
+
+                            <ChevronDown
+                                size={16}
+                                className={`
+                  transition-transform duration-200
+                  ${
+                                    isServicesActive
+                                        ? 'rotate-180'
+                                        : 'group-hover:rotate-180'
+                                }
+                `}
+                            />
                         </NavLink>
 
-                        <NavLink
-                            to="/services/generators"
-                            className="block px-4 py-2 hover:bg-gray-100"
-                        >
-                            Генераторы
-                        </NavLink>
+                        {/* DROPDOWN */}
+                        <div className="absolute left-0 top-full hidden min-w-48 rounded-md border bg-white shadow-md group-hover:block">
+                            <NavLink
+                                to="/services/starters"
+                                className={({ isActive }) =>
+                                    `block px-4 py-2 hover:bg-gray-100 ${
+                                        isActive ? 'font-semibold bg-gray-100' : ''
+                                    }`
+                                }
+                            >
+                                Стартери
+                            </NavLink>
+
+                            <NavLink
+                                to="/services/generators"
+                                className={({ isActive }) =>
+                                    `block px-4 py-2 hover:bg-gray-100 ${
+                                        isActive ? 'font-semibold bg-gray-100' : ''
+                                    }`
+                                }
+                            >
+                                Генератори
+                            </NavLink>
+                        </div>
                     </div>
+
+                    <NavLink
+                        to="/prices"
+                        className={({ isActive }) =>
+                            `${navItem} ${isActive ? activeUnderline : ''}`
+                        }
+                    >
+                        Ціни
+                    </NavLink>
+
+                    <NavLink
+                        to="/contacts"
+                        className={({ isActive }) =>
+                            `${navItem} ${isActive ? activeUnderline : ''}`
+                        }
+                    >
+                        Контакти
+                    </NavLink>
                 </div>
 
-                <NavLink to="/prices">
-                    Цены
-                </NavLink>
+                {/* ПРАВАЯ ЧАСТЬ — ЯЗЫК */}
+                <div className="flex items-center gap-2">
+                    <button
+                        onClick={() => i18n.changeLanguage('ua')}
+                        className={i18n.language === 'ua' ? 'font-bold' : 'opacity-60'}
+                    >
+                        UA
+                    </button>
 
-                <NavLink to="/contacts">
-                    Контакты
-                </NavLink>
+                    <span className="opacity-30">|</span>
+
+                    <button
+                        onClick={() => i18n.changeLanguage('ru')}
+                        className={i18n.language === 'ru' ? 'font-bold' : 'opacity-60'}
+                    >
+                        RU
+                    </button>
+                </div>
             </div>
         </nav>
     )
