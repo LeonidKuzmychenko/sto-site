@@ -2,51 +2,89 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 import { Layout } from '../pages/Layout'
 import { HomePage } from '../pages/HomePage'
+import { NotFoundPage } from '../pages/NotFoundPage'
+import { ContactsPage } from '../pages/ContactsPage'
+import { PricesPage } from '../pages/PricesPage'
+
+// services
 import { ServicesPage } from '../pages/services/ServicesPage'
 import { StartersPage } from '../pages/services/StartersPage'
 import { GeneratorsPage } from '../pages/services/GeneratorsPage'
-import { PricesPage } from '../pages/PricesPage'
-import { ContactsPage } from '../pages/ContactsPage'
-import { NotFoundPage } from '../pages/NotFoundPage'
 
-export const router = createBrowserRouter(
-    [
-        {
-            path: '/',
-            element: <Layout />,
-            errorElement: <NotFoundPage />,
-            children: [
-                // Главная
-                { index: true, element: <HomePage /> },
+// gallery
+import { GalleryPage } from '../pages/gallery/GalleryPage'
+import { EquipmentPage } from '../pages/gallery/EquipmentPage'
+import { BeforeAfterPage } from '../pages/gallery/BeforeAfterPage'
 
-                // Услуги
-                {
-                    path: 'services',
-                    element: <ServicesPage />,
-                    children: [
-                        // 🔴 ВАЖНО: редирект вместо лишней страницы
-                        {
-                            index: true,
-                            element: <Navigate to="starters" replace />,
-                        },
-                        {
-                            path: 'starters',
-                            element: <StartersPage />,
-                        },
-                        {
-                            path: 'generators',
-                            element: <GeneratorsPage />,
-                        },
-                    ],
-                },
-
-                // Остальные страницы
-                { path: 'prices', element: <PricesPage /> },
-                { path: 'contacts', element: <ContactsPage /> },
-            ],
-        },
-    ],
+export const router = createBrowserRouter([
     {
-        basename: '/sto-site',
-    }
-)
+        path: '/',
+        element: <Layout />,
+        errorElement: <NotFoundPage />,
+        children: [
+            // Главная
+            {
+                index: true,
+                element: <HomePage />,
+            },
+
+            // Услуги
+            {
+                path: 'services',
+                element: <ServicesPage />,
+                children: [
+                    {
+                        index: true,
+                        element: <Navigate to="starters" replace />,
+                    },
+                    {
+                        path: 'starters',
+                        element: <StartersPage />,
+                    },
+                    {
+                        path: 'generators',
+                        element: <GeneratorsPage />,
+                    },
+                ],
+            },
+
+            // Галерея
+            {
+                path: 'gallery',
+                element: <GalleryPage />,
+                children: [
+                    {
+                        index: true,
+                        element: <Navigate to="equipment" replace />,
+                    },
+                    {
+                        path: 'equipment',
+                        element: <EquipmentPage />,
+                    },
+                    {
+                        path: 'before-after',
+                        element: <BeforeAfterPage />,
+                    },
+                ],
+            },
+
+            // Оплата / доставка
+            {
+                path: 'payment-delivery',
+                element: <PricesPage />,
+            },
+
+            // Контакты
+            {
+                path: 'contacts',
+                element: <ContactsPage />,
+            },
+
+            // 404
+            {
+                path: '*',
+                element: <NotFoundPage />,
+            },
+        ],
+    },
+])

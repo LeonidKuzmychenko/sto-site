@@ -7,6 +7,7 @@ export function Nav() {
     const location = useLocation()
 
     const isServicesActive = location.pathname.startsWith('/services')
+    const isGalleryActive = location.pathname.startsWith('/gallery')
 
     const navItem =
         'relative flex h-full items-center gap-1 px-1 transition-colors hover:text-blue-600'
@@ -31,60 +32,95 @@ export function Nav() {
                         Головна
                     </NavLink>
 
-                    {/* УСЛУГИ + СТРЕЛКА */}
+                    {/* УСЛУГИ */}
                     <div className="relative group flex h-full items-center">
                         <NavLink
                             to="/services"
                             className={`${navItem} ${isServicesActive ? activeUnderline : ''}`}
                         >
                             Послуги
-
                             <ChevronDown
                                 size={16}
                                 className={`
-                  transition-transform duration-200
-                  ${
-                                    isServicesActive
-                                        ? 'rotate-180'
-                                        : 'group-hover:rotate-180'
-                                }
-                `}
+                                    transition-transform duration-200
+                                    ${isServicesActive ? 'rotate-180' : 'group-hover:rotate-180'}
+                                `}
                             />
                         </NavLink>
 
-                        {/* DROPDOWN */}
                         <div className="absolute left-0 top-full hidden min-w-48 rounded-md border bg-white shadow-md group-hover:block">
                             <NavLink
                                 to="/services/starters"
                                 className={({ isActive }) =>
                                     `block px-4 py-2 hover:bg-gray-100 ${
-                                        isActive ? 'font-semibold bg-gray-100' : ''
+                                        isActive ? 'bg-gray-100 font-semibold' : ''
                                     }`
                                 }
                             >
-                                Стартери
+                                Ремонт стартерів
                             </NavLink>
 
                             <NavLink
                                 to="/services/generators"
                                 className={({ isActive }) =>
                                     `block px-4 py-2 hover:bg-gray-100 ${
-                                        isActive ? 'font-semibold bg-gray-100' : ''
+                                        isActive ? 'bg-gray-100 font-semibold' : ''
                                     }`
                                 }
                             >
-                                Генератори
+                                Ремонт генераторів
+                            </NavLink>
+                        </div>
+                    </div>
+
+                    {/* ГАЛЕРЕЯ */}
+                    <div className="relative group flex h-full items-center">
+                        <NavLink
+                            to="/gallery"
+                            className={`${navItem} ${isGalleryActive ? activeUnderline : ''}`}
+                        >
+                            Галерея
+                            <ChevronDown
+                                size={16}
+                                className={`
+                                    transition-transform duration-200
+                                    ${isGalleryActive ? 'rotate-180' : 'group-hover:rotate-180'}
+                                `}
+                            />
+                        </NavLink>
+
+                        <div className="absolute left-0 top-full hidden min-w-48 rounded-md border bg-white shadow-md group-hover:block">
+                            <NavLink
+                                to="/gallery/equipment"
+                                className={({ isActive }) =>
+                                    `block px-4 py-2 hover:bg-gray-100 ${
+                                        isActive ? 'bg-gray-100 font-semibold' : ''
+                                    }`
+                                }
+                            >
+                                Наше обладнання
+                            </NavLink>
+
+                            <NavLink
+                                to="/gallery/before-after"
+                                className={({ isActive }) =>
+                                    `block px-4 py-2 hover:bg-gray-100 ${
+                                        isActive ? 'bg-gray-100 font-semibold' : ''
+                                    }`
+                                }
+                            >
+                                До / Після
                             </NavLink>
                         </div>
                     </div>
 
                     <NavLink
-                        to="/prices"
+                        to="/payment-delivery"
                         className={({ isActive }) =>
                             `${navItem} ${isActive ? activeUnderline : ''}`
                         }
                     >
-                        Ціни
+                        Оплата / Доставка
                     </NavLink>
 
                     <NavLink
