@@ -1,45 +1,30 @@
-const scrollTo = (id: string) => {
-    const el = document.getElementById(id)
-    if (!el) return
-    el.scrollIntoView({ behavior: 'smooth' })
-}
-
+import { useTranslation } from "react-i18next"
+import { selectNavItems } from "../../entities/section/model/selectors"
 
 export function Nav() {
-    return (
-        <nav className="fixed top-0 z-50 w-full bg-white/80 backdrop-blur border-b">
-            <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-                <div className="text-lg font-semibold tracking-tight">
-                    STO
-                </div>
+    const { t } = useTranslation()
+    const items = selectNavItems()
 
-                <ul className="flex gap-8 text-sm font-medium">
-                    <li>
-                        <button
-                            onClick={() => scrollTo('services')}
-                            className="transition-colors hover:text-blue-600"
-                        >
-                            Услуги
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            onClick={() => scrollTo('prices')}
-                            className="transition-colors hover:text-blue-600"
-                        >
-                            Цены
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            onClick={() => scrollTo('contacts')}
-                            className="transition-colors hover:text-blue-600"
-                        >
-                            Контакты
-                        </button>
-                    </li>
-                </ul>
-            </div>
+    return (
+        <nav className="flex items-center gap-8 text-sm font-medium text-slate-700">
+            {items.map((item) => (
+                <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="
+                        relative
+                        transition-colors
+                        hover:text-slate-900
+                        after:absolute after:left-0 after:-bottom-1
+                        after:h-[1px] after:w-0
+                        after:bg-slate-900
+                        after:transition-all
+                        hover:after:w-full
+                    "
+                >
+                    {t(item.labelKey)}
+                </a>
+            ))}
         </nav>
     )
 }

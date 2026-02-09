@@ -4,8 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import ru from './locales/ru.json';
 import en from './locales/en.json';
 
-i18n
-    .use(initReactI18next)
+i18n.use(initReactI18next)
     .init({
         resources: {
             ru: { translation: ru },
