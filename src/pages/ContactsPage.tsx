@@ -16,72 +16,70 @@ export function ContactsPage() {
                     </h1>
                 </section>
 
-                {/* ОСНОВНА ІНФОРМАЦІЯ */}
-                <section className="grid gap-8 md:grid-cols-2">
-                    <div className="space-y-4 text-gray-700">
-                        <p>
-                            <strong className="text-gray-900">Адреса:</strong>{' '}
-                            м. Одеса
-                        </p>
+                {/* КОНТАКТНА ІНФОРМАЦІЯ */}
+                <section className="space-y-4 text-gray-700">
+                    <p>
+                        <strong className="text-gray-900">Адреса:</strong>{' '}
+                        м. Одеса
+                    </p>
 
-                        <p>
-                            <strong className="text-gray-900">Телефон:</strong>{' '}
-                            <a
-                                href="tel:+380XXXXXXXXX"
-                                className="text-blue-600 hover:underline"
-                            >
-                                +380 XX XXX XX XX
-                            </a>
-                        </p>
+                    <p>
+                        <strong className="text-gray-900">Телефон:</strong>{' '}
+                        <a
+                            href="tel:+380XXXXXXXXX"
+                            className="text-blue-600 hover:underline"
+                        >
+                            +380 XX XXX XX XX
+                        </a>
+                    </p>
 
-                        <p>
-                            <strong className="text-gray-900">
-                                Графік роботи:
-                            </strong>{' '}
-                            Пн–Сб, 9:00–18:00
-                        </p>
+                    <p>
+                        <strong className="text-gray-900">
+                            Графік роботи:
+                        </strong>{' '}
+                        Пн–Сб, 9:00–18:00
+                    </p>
 
-                        {/* СОЦСЕТИ */}
-                        <div>
-                            <strong className="text-gray-900">
-                                Ми в соцмережах:
-                            </strong>
+                    {/* СОЦСЕТИ */}
+                    <div>
+                        <strong className="text-gray-900">
+                            Ми в соцмережах:
+                        </strong>
 
-                            <ul className="mt-2 space-y-1">
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="text-blue-600 hover:underline"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        Facebook
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="text-blue-600 hover:underline"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        Instagram
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        <ul className="mt-2 space-y-1">
+                            <li>
+                                <a
+                                    href="#"
+                                    className="text-blue-600 hover:underline"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    className="text-blue-600 hover:underline"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Instagram
+                                </a>
+                            </li>
+                        </ul>
                     </div>
+                </section>
 
-                    {/* КАРТА */}
-                    <div className="w-full overflow-hidden rounded border border-gray-200">
-                        <iframe
-                            title="Ми на мапі"
-                            src="https://www.google.com/maps?q=Odessa&output=embed"
-                            className="h-72 w-full border-0"
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                        />
-                    </div>
+                {/* КАРТА */}
+                <section className="overflow-hidden rounded border border-gray-200">
+                    <iframe
+                        title="Ми на мапі"
+                        src="https://www.google.com/maps?q=Odessa&output=embed"
+                        className="h-80 w-full border-0"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    />
                 </section>
             </div>
         </main>
