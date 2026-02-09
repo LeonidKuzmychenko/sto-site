@@ -4,7 +4,6 @@ import { Layout } from '../pages/Layout'
 import { HomePage } from '../pages/HomePage'
 import { NotFoundPage } from '../pages/NotFoundPage'
 import { ContactsPage } from '../pages/ContactsPage'
-import { PricesPage } from '../pages/PricesPage'
 
 // services
 import { ServicesPage } from '../pages/services/ServicesPage'
@@ -15,6 +14,7 @@ import { GeneratorsPage } from '../pages/services/GeneratorsPage'
 import { GalleryPage } from '../pages/gallery/GalleryPage'
 import { EquipmentPage } from '../pages/gallery/EquipmentPage'
 import { BeforeAfterPage } from '../pages/gallery/BeforeAfterPage'
+import {PaymentDeliveryPage} from "@/pages/PaymentDeliveryPage.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
             // Оплата / доставка
             {
                 path: 'payment-delivery',
-                element: <PricesPage />,
+                element: <PaymentDeliveryPage />,
             },
 
             // Контакты
