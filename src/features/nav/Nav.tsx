@@ -25,13 +25,13 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
     }, [mobileOpen])
 
     const navItem =
-        'relative flex items-center gap-1 py-2 text-sm font-medium transition-colors hover:text-blue-600'
+        'relative flex h-full items-center gap-1 px-1 text-sm font-medium transition-colors hover:text-blue-600'
 
     const activeUnderline =
         'after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-blue-600 after:content-[""]'
 
     /* =======================
-       DESKTOP NAV
+       DESKTOP NAV (with dropdown)
     ======================= */
     const DesktopNav = (
         <div className="hidden md:flex items-center gap-8 h-full">
@@ -45,21 +45,101 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                 Головна
             </NavLink>
 
-            <NavLink
-                to="/services"
-                className={`${navItem} ${isServicesActive ? activeUnderline : ''}`}
-            >
-                Послуги
-                <ChevronDown size={16} />
-            </NavLink>
+            {/* ПОСЛУГИ */}
+            <div className="relative group h-full flex items-center">
+                <NavLink
+                    to="/services"
+                    className={`${navItem} ${isServicesActive ? activeUnderline : ''}`}
+                >
+                    Послуги
+                    <ChevronDown
+                        size={16}
+                        className={`
+                            transition-transform duration-200
+                            ${isServicesActive ? 'rotate-180' : 'group-hover:rotate-180'}
+                        `}
+                    />
+                </NavLink>
 
-            <NavLink
-                to="/gallery"
-                className={`${navItem} ${isGalleryActive ? activeUnderline : ''}`}
-            >
-                Галерея
-                <ChevronDown size={16} />
-            </NavLink>
+                <div className="
+                    absolute left-0 top-full
+                    hidden group-hover:block
+                    min-w-52
+                    rounded-md border
+                    bg-white
+                    shadow-sm
+                ">
+                    <NavLink
+                        to="/services/starters"
+                        className={({ isActive }) =>
+                            `block px-4 py-2 hover:bg-gray-100 ${
+                                isActive ? 'bg-gray-100 font-semibold' : ''
+                            }`
+                        }
+                    >
+                        Ремонт стартерів
+                    </NavLink>
+
+                    <NavLink
+                        to="/services/generators"
+                        className={({ isActive }) =>
+                            `block px-4 py-2 hover:bg-gray-100 ${
+                                isActive ? 'bg-gray-100 font-semibold' : ''
+                            }`
+                        }
+                    >
+                        Ремонт генераторів
+                    </NavLink>
+                </div>
+            </div>
+
+            {/* ГАЛЕРЕЯ */}
+            <div className="relative group h-full flex items-center">
+                <NavLink
+                    to="/gallery"
+                    className={`${navItem} ${isGalleryActive ? activeUnderline : ''}`}
+                >
+                    Галерея
+                    <ChevronDown
+                        size={16}
+                        className={`
+                            transition-transform duration-200
+                            ${isGalleryActive ? 'rotate-180' : 'group-hover:rotate-180'}
+                        `}
+                    />
+                </NavLink>
+
+                <div className="
+                    absolute left-0 top-full
+                    hidden group-hover:block
+                    min-w-52
+                    rounded-md border
+                    bg-white
+                    shadow-sm
+                ">
+                    <NavLink
+                        to="/gallery/equipment"
+                        className={({ isActive }) =>
+                            `block px-4 py-2 hover:bg-gray-100 ${
+                                isActive ? 'bg-gray-100 font-semibold' : ''
+                            }`
+                        }
+                    >
+                        Наше обладнання
+                    </NavLink>
+
+                    <NavLink
+                        to="/gallery/before-after"
+                        className={({ isActive }) =>
+                            `block px-4 py-2 hover:bg-gray-100 ${
+                                isActive ? 'bg-gray-100 font-semibold' : ''
+                            }`
+                        }
+                    >
+                        До / Після
+                    </NavLink>
+                </div>
+            </div>
 
             <NavLink
                 to="/payment-delivery"
@@ -88,32 +168,21 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
     ======================= */
     const MobileOverlay = mobileOpen && (
         <div className="fixed inset-0 z-50 bg-white">
-            {/* HEADER */}
             <div className="flex h-16 items-center justify-between px-6 border-b border-slate-200">
                 <LanguageSwitch />
-
-                <button
-                    onClick={onClose}
-                    aria-label="Close menu"
-                    className="p-1"
-                >
+                <button onClick={onClose} aria-label="Close menu">
                     <X />
                 </button>
             </div>
 
-            {/* MENU */}
-            <nav
-                className="
-                    flex flex-col gap-6
-                    px-6 py-8
-                    text-base font-medium
-                    bg-white
-                    min-h-[calc(100vh-4rem)]
-                "
-            >
-                <NavLink to="/" onClick={onClose}>
-                    Головна
-                </NavLink>
+            <nav className="
+                flex flex-col gap-6
+                px-6 py-8
+                text-base font-medium
+                bg-white
+                min-h-[calc(100vh-4rem)]
+            ">
+                <NavLink to="/" onClick={onClose}>Головна</NavLink>
 
                 {/* ПОСЛУГИ */}
                 <div>
@@ -124,9 +193,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                         <span>Послуги</span>
                         <ChevronDown
                             size={16}
-                            className={`transition-transform ${
-                                servicesOpen ? 'rotate-180' : ''
-                            }`}
+                            className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`}
                         />
                     </button>
 
@@ -151,9 +218,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                         <span>Галерея</span>
                         <ChevronDown
                             size={16}
-                            className={`transition-transform ${
-                                galleryOpen ? 'rotate-180' : ''
-                            }`}
+                            className={`transition-transform ${galleryOpen ? 'rotate-180' : ''}`}
                         />
                     </button>
 
