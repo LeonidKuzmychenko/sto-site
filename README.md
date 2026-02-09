@@ -7,4 +7,6 @@ npx tailwindcss init -p
 tailwind.config.js
 postcss.config.js
 
+добавление i18n
+npm i i18next react-i18next
 
