@@ -1,4 +1,7 @@
 {
-  "title": "Car Service",
-  "cta": "Book a repair"
+  "nav": {
+    "services": "Services",
+    "prices": "Prices",
+    "contacts": "Contacts"
+  }
 }
