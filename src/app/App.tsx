@@ -1,11 +1,8 @@
-import { Sections } from '../components/sections/Sections.tsx'
-import {Layout} from "../components/layout/Layout.tsx";
+import {HomePage} from "../pages/HomePage.tsx";
 
 function App() {
     return (
-        <Layout>
-            <Sections />
-        </Layout>
+        <HomePage />
     )
 }
 

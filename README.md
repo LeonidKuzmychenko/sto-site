@@ -47,7 +47,7 @@ src/
 │   ├── App.tsx
 │   ├── main.tsx
 │   └── i18n/
-│       ├── index.ts
+│       ├── i18n.ts
 │       └── locales/
 │           ├── en.json
 │           └── ru.json
