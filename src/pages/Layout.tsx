@@ -1,13 +1,13 @@
 import { Outlet } from 'react-router-dom'
-import { Nav } from '../features/nav/Nav'
 import Footer from '@/widgets/footer/Footer'
+import Header from "@/widgets/header/Header.tsx";
 
 export function Layout() {
     return (
         <div className="flex min-h-screen flex-col">
-            <Nav />
+            <Header />
 
-            <main className="flex-1 pt-16">
+            <main className="flex-1">
                 <Outlet />
             </main>
 
