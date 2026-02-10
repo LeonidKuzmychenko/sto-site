@@ -1,3 +1,6 @@
+import {BeforeAfterCard} from '@/features/ui/BeforeAfterCard'
+import {Seo} from "@/shared/seo/Seo.tsx";
+
 type BeforeAfterItem = {
     id: number
     title: string
@@ -34,54 +37,28 @@ const CASES: BeforeAfterItem[] = [
 
 export function BeforeAfterPage() {
     return (
-        <div>
-            <h1 className="mb-8 text-2xl font-semibold text-gray-900">
-                До / После
-            </h1>
-
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                {CASES.map((item) => (
-                    <div
-                        key={item.id}
-                        className="
-                            rounded border border-gray-200
-                            bg-white p-4
-                        "
-                    >
-                        <div className="mb-4 text-sm font-medium text-gray-900">
-                            {item.title}
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="text-center text-xs text-gray-600">
-                                <img
-                                    src={item.before}
-                                    alt={`До — ${item.title}`}
-                                    loading="lazy"
-                                    className="
-                                        mb-2 h-40 w-full
-                                        rounded object-cover
-                                    "
-                                />
-                                До
-                            </div>
-
-                            <div className="text-center text-xs text-gray-600">
-                                <img
-                                    src={item.after}
-                                    alt={`После — ${item.title}`}
-                                    loading="lazy"
-                                    className="
-                                        mb-2 h-40 w-full
-                                        rounded object-cover
-                                    "
-                                />
-                                После
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
+        <>
+            <Seo
+                title=""
+                description=""
+            />
+            <section className="py-16 pt-24 mx-auto max-w-6xl px-4">
+                <h1 className="mb-8 text-2xl font-semibold text-gray-900">
+                    До / Після
+                </h1>
+                <ul
+                    className="grid gap-6 grid-cols-1 sm:grid-cols-2 auto-rows-fr">
+                    {CASES.map(item => (
+                        <li key={item.id} className="h-full">
+                            <BeforeAfterCard
+                                title={item.title}
+                                before={item.before}
+                                after={item.after}
+                            />
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        </>
     )
 }
