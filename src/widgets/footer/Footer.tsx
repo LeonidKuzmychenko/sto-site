@@ -25,12 +25,17 @@ const Footer: React.FC = () => {
                             </span>
 
                             {open && (
-                                <div className="
-                                    absolute right-0 bottom-full z-50 mb-3
-                                    w-80 rounded border border-neutral-700
-                                    bg-neutral-800 p-4 text-xs leading-relaxed
-                                    text-neutral-300 shadow-lg
-                                ">
+                                <div
+                                    className="
+                                                fixed left-1/2 bottom-20 z-50
+                                                w-80 max-w-[calc(100vw-2rem)]
+                                                -translate-x-1/2
+                                                rounded border border-neutral-700
+                                                bg-neutral-800 p-4 text-xs leading-relaxed
+                                                text-neutral-300 shadow-xl
+                                                max-h-[60vh] overflow-y-auto
+                                            "
+                                >
                                     <p className="mb-2">
                                         Сайт використовує технічні cookies, необхідні
                                         для коректної роботи та відображення сторінок.
@@ -49,6 +54,8 @@ const Footer: React.FC = () => {
                                     </p>
                                 </div>
                             )}
+
+
                         </div>
 
                         <a
