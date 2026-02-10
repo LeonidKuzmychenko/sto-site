@@ -1,29 +1,28 @@
-import { Seo } from '../shared/seo/Seo'
-import { MapPin, Phone, Clock} from 'lucide-react'
+import {Seo} from '../shared/seo/Seo'
+import {MapPin, Phone, Clock} from 'lucide-react'
 
 export function ContactsPage() {
     return (
-        <main className="py-16 pt-24">
+        <>
             <Seo
                 title="Контакти"
                 description="Контактна інформація майстерні з ремонту стартерів і генераторів в Одесі. Телефон, адреса, графік роботи."
             />
 
-            <div className="mx-auto max-w-6xl px-4 space-y-12">
+            <section className="py-16 pt-24 mx-auto max-w-6xl px-4">
                 {/* ЗАГОЛОВОК */}
-                <section>
-                    <h1 className="text-2xl font-semibold text-gray-900">
-                        Контакти
-                    </h1>
-                </section>
 
-                <section className="grid gap-8 lg:grid-cols-[max-content_1fr]">
+                <h1 className="text-2xl font-semibold text-gray-900 mb-8">
+                    Контакти
+                </h1>
+
+                <div className="grid gap-8 lg:grid-cols-[max-content_1fr]">
                     {/* ЛЕВАЯ КОЛОНКА */}
                     <div className="space-y-6">
                         {/* АДРЕСА */}
                         <div className="rounded-lg border border-gray-200 p-6">
                             <div className="mb-2 flex items-center gap-2">
-                                <MapPin className="h-5 w-5 text-blue-600" />
+                                <MapPin className="h-5 w-5 text-blue-600"/>
                                 <h2 className="font-semibold text-gray-900">
                                     Адреса
                                 </h2>
@@ -42,7 +41,7 @@ export function ContactsPage() {
                         {/* ТЕЛЕФОН */}
                         <div className="rounded-lg border border-gray-200 p-6">
                             <div className="mb-2 flex items-center gap-2">
-                                <Phone className="h-5 w-5 text-blue-600" />
+                                <Phone className="h-5 w-5 text-blue-600"/>
                                 <h2 className="font-semibold text-gray-900">
                                     Телефон
                                 </h2>
@@ -58,7 +57,7 @@ export function ContactsPage() {
                         {/* ГРАФІК */}
                         <div className="rounded-lg border border-gray-200 p-6">
                             <div className="mb-2 flex items-center gap-2">
-                                <Clock className="h-5 w-5 text-blue-600" />
+                                <Clock className="h-5 w-5 text-blue-600"/>
                                 <h2 className="font-semibold text-gray-900">
                                     Графік роботи
                                 </h2>
@@ -189,8 +188,8 @@ export function ContactsPage() {
                             referrerPolicy="no-referrer-when-downgrade"
                         />
                     </div>
-                </section>
-            </div>
-        </main>
+                </div>
+            </section>
+        </>
     )
 }

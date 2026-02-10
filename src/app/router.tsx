@@ -7,12 +7,10 @@ import {ContactsPage} from '../pages/ContactsPage'
 import {PaymentDeliveryPage} from '../pages/PaymentDeliveryPage'
 
 // services
-import {ServicesPage} from '../pages/services/ServicesPage'
 import {StartersPage} from '../pages/services/StartersPage'
 import {GeneratorsPage} from '../pages/services/GeneratorsPage'
 
 // gallery
-import {GalleryPage} from '../pages/gallery/GalleryPage'
 import {EquipmentPage} from '../pages/gallery/EquipmentPage'
 import {BeforeAfterPage} from '../pages/gallery/BeforeAfterPage'
 
@@ -23,74 +21,53 @@ export const router = createBrowserRouter(
             element: <Layout/>,
             errorElement: <NotFoundPage/>,
             children: [
-                // Главная
-                {
-                    index: true,
-                    element: <HomePage/>,
-                },
+                {index: true, element: <HomePage/>},
 
-                // Услуги
+                //Услуги
                 {
                     path: 'services',
-                    element: <ServicesPage/>,
-                    children: [
-                        {
-                            index: true,
-                            element: <Navigate to="starters" replace/>,
-                        },
-                        {
-                            path: 'starters',
-                            element: <StartersPage/>,
-                        },
-                        {
-                            path: 'generators',
-                            element: <GeneratorsPage/>,
-                        },
-                    ],
+                    element: <Navigate to="starters" replace/>,
                 },
-
-                // Галерея
+                {
+                    path: 'services/starters',
+                    element: <StartersPage/>,
+                },
+                {
+                    path: 'services/generators',
+                    element: <GeneratorsPage/>,
+                },
+                //Галерея
                 {
                     path: 'gallery',
-                    element: <GalleryPage/>,
-                    children: [
-                        {
-                            index: true,
-                            element: <Navigate to="equipment" replace/>,
-                        },
-                        {
-                            path: 'equipment',
-                            element: <EquipmentPage/>,
-                        },
-                        {
-                            path: 'before-after',
-                            element: <BeforeAfterPage/>,
-                        },
-                    ],
+                    element: <Navigate to="equipment" replace/>,
                 },
-
-                // Оплата / доставка
+                {
+                    path: 'gallery/equipment',
+                    element: <EquipmentPage/>,
+                },
+                {
+                    path: 'gallery/before-after',
+                    element: <BeforeAfterPage/>,
+                },
+                //Оплата и доставка
                 {
                     path: 'payment-delivery',
-                    element: <PaymentDeliveryPage/>,
+                    element: <PaymentDeliveryPage/>
                 },
-
-                // Контакты
+                //Контакты
                 {
                     path: 'contacts',
-                    element: <ContactsPage/>,
+                    element: <ContactsPage/>
                 },
-
-                // 404 (fallback)
+                //404
                 {
                     path: '*',
-                    element: <NotFoundPage/>,
-                },
+                    element: <NotFoundPage/>
+                }
             ],
         },
     ],
     {
-        // 🔴 КРИТИЧНО для GitHub Pages
-        basename: '/sto-site',
+        basename: '/sto-site/',
     }
 )

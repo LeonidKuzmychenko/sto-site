@@ -22,7 +22,6 @@ export default function Header() {
                         flex items-center
                     "
                 >
-                    {/* LOGO */}
                     <div className="font-semibold text-lg whitespace-nowrap">
                         STO
                     </div>
