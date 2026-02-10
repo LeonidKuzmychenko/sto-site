@@ -18,34 +18,28 @@ export function ContactsPage() {
 
                 {/* КОНТАКТНА ІНФОРМАЦІЯ */}
                 <section className="space-y-4 text-gray-700">
-                    <p>
-                        <strong className="text-gray-900">Адреса:</strong>{' '}
-                        м. Одеса
-                    </p>
+                    <div>
+                        <p><strong className="text-gray-900">Адреса:</strong></p>
+                        <p>м. Одеса, вул. ________, буд. __</p>
+                        <p>(орієнтир: ________)</p>
+                    </div>
 
-                    <p>
-                        <strong className="text-gray-900">Телефон:</strong>{' '}
-                        <a
-                            href="tel:+380XXXXXXXXX"
-                            className="text-blue-600 hover:underline"
-                        >
+
+                    <div>
+                        <p><strong className="text-gray-900">Телефон:</strong></p>
+                        <a href="tel:+380XXXXXXXXX" className="text-blue-600 hover:underline">
                             +380 XX XXX XX XX
                         </a>
-                    </p>
+                    </div>
 
-                    <p>
-                        <strong className="text-gray-900">
-                            Графік роботи:
-                        </strong>{' '}
-                        Пн–Сб, 9:00–18:00
-                    </p>
-
-                    {/* СОЦСЕТИ */}
                     <div>
-                        <strong className="text-gray-900">
-                            Ми в соцмережах:
-                        </strong>
+                        <p><strong className="text-gray-900">Графік роботи:</strong></p>
+                        <p>Понеділок–П'ятниця, 9:00–18:00</p>
+                        <p>Субота-Неділя, вихідні</p>
+                    </div>
 
+                    <div>
+                        <p><strong className="text-gray-900">Месенджери:</strong></p>
                         <ul className="mt-2 space-y-1">
                             <li>
                                 <a
@@ -54,7 +48,7 @@ export function ContactsPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    Facebook
+                                    <img src="/sto-site/social/telegram.svg" alt=""/>Telegram
                                 </a>
                             </li>
                             <li>
@@ -64,7 +58,45 @@ export function ContactsPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    Instagram
+                                    <img src="/sto-site/social/viber.svg" alt=""/>Viber
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* СОЦСЕТИ */}
+                    <div>
+                        <p><strong className="text-gray-900">Cоцмережи:</strong></p>
+
+                        <ul className="mt-2 space-y-1">
+                            <li>
+                                <a
+                                    href="#"
+                                    className="text-blue-600 hover:underline"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img src="/sto-site/social/instagram.svg" alt=""/>Instagram
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    className="text-blue-600 hover:underline"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img src="/sto-site/social/tiktok.svg" alt=""/>TikTok
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    className="text-blue-600 hover:underline"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img src="/sto-site/social/youtube.svg" alt=""/>YouTube
                                 </a>
                             </li>
                         </ul>
