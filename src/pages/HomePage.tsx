@@ -1,5 +1,6 @@
-import {NavLink} from 'react-router-dom'
-import {Seo} from '@/shared/seo/Seo.tsx'
+import { NavLink } from 'react-router-dom'
+import { ArrowRight, ChevronRight } from 'lucide-react'
+import { Seo } from '@/shared/seo/Seo.tsx'
 
 export function HomePage() {
     return (
@@ -19,9 +20,9 @@ export function HomePage() {
                         border-b bg-cover bg-center text-center
                         pt-64
                     "
-                    style={{backgroundImage: 'url(/sto-site/background.png)'}}
+                    style={{ backgroundImage: 'url(/sto-site/background.png)' }}
                 >
-                    <div className="absolute inset-0 bg-white/60"/>
+                    <div className="absolute inset-0 bg-white/40" />
 
                     <div className="relative mx-auto max-w-3xl px-4">
                         <h1 className="mb-6 text-4xl font-semibold text-gray-900">
@@ -36,17 +37,17 @@ export function HomePage() {
                         <NavLink
                             to="/services"
                             className="
-                                inline-flex items-center justify-center
+                                group inline-flex items-center justify-center gap-2
                                 rounded bg-blue-600 px-8 py-3
                                 text-base font-medium text-white
                                 transition-colors hover:bg-blue-700
                             "
                         >
                             Переглянути послуги
+                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </NavLink>
                     </div>
                 </section>
-
 
                 {/* УСЛУГИ */}
                 <section className="py-16">
@@ -64,27 +65,37 @@ export function HomePage() {
                         <div className="flex flex-col gap-6">
                             <NavLink
                                 to="/services/starters"
-                                className="rounded border border-gray-200 p-4 transition-colors hover:border-blue-600"
+                                className="
+                                    group rounded border border-gray-200 p-4
+                                    transition-colors hover:border-blue-600
+                                "
                             >
                                 <p className="mb-2 text-sm text-gray-600">
                                     Ремонт стартерів з урахуванням реального зносу,
                                     навантажень і стану вузлів.
                                 </p>
-                                <span className="font-medium text-gray-900">
+
+                                <span className="flex items-center gap-1 font-medium text-gray-900">
                                     Ремонт стартерів
+                                    <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-0.5" />
                                 </span>
                             </NavLink>
 
                             <NavLink
                                 to="/services/generators"
-                                className="rounded border border-gray-200 p-4 transition-colors hover:border-blue-600"
+                                className="
+                                    group rounded border border-gray-200 p-4
+                                    transition-colors hover:border-blue-600
+                                "
                             >
                                 <p className="mb-2 text-sm text-gray-600">
                                     Генератори перевіряємо під навантаженням,
                                     а не «на слух» чи візуально.
                                 </p>
-                                <span className="font-medium text-gray-900">
+
+                                <span className="flex items-center gap-1 font-medium text-gray-900">
                                     Ремонт генераторів
+                                    <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-0.5" />
                                 </span>
                             </NavLink>
                         </div>
@@ -106,25 +117,35 @@ export function HomePage() {
                         <div className="flex flex-col gap-4">
                             <NavLink
                                 to="/gallery/equipment"
-                                className="rounded border border-gray-200 px-4 py-3 transition-colors hover:border-blue-600"
+                                className="
+                                    group rounded border border-gray-200 px-4 py-3
+                                    transition-colors hover:border-blue-600
+                                "
                             >
                                 <p className="mb-1 text-sm text-gray-600">
                                     Обладнання, на якому ми реально працюємо щодня.
                                 </p>
-                                <span className="font-medium text-gray-900">
+
+                                <span className="flex items-center gap-1 font-medium text-gray-900">
                                     Наше обладнання
+                                    <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-0.5" />
                                 </span>
                             </NavLink>
 
                             <NavLink
                                 to="/gallery/before-after"
-                                className="rounded border border-gray-200 px-4 py-3 transition-colors hover:border-blue-600"
+                                className="
+                                    group rounded border border-gray-200 px-4 py-3
+                                    transition-colors hover:border-blue-600
+                                "
                             >
                                 <p className="mb-1 text-sm text-gray-600">
                                     Результати роботи без ретуші та маркетингових фото.
                                 </p>
-                                <span className="font-medium text-gray-900">
+
+                                <span className="flex items-center gap-1 font-medium text-gray-900">
                                     До / Після
+                                    <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-0.5" />
                                 </span>
                             </NavLink>
                         </div>
@@ -145,9 +166,13 @@ export function HomePage() {
 
                         <NavLink
                             to="/payment-delivery"
-                            className="text-sm font-medium text-blue-600 hover:underline"
+                            className="
+                                group inline-flex items-center gap-1
+                                text-sm font-medium text-blue-600 hover:underline
+                            "
                         >
                             Детальніше
+                            <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                         </NavLink>
                     </div>
                 </section>
@@ -166,9 +191,13 @@ export function HomePage() {
 
                         <NavLink
                             to="/contacts"
-                            className="text-sm font-medium text-blue-600 hover:underline"
+                            className="
+                                group inline-flex items-center gap-1
+                                text-sm font-medium text-blue-600 hover:underline
+                            "
                         >
                             Перейти до контактів
+                            <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                         </NavLink>
                     </div>
                 </section>

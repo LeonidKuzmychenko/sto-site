@@ -2,7 +2,7 @@ import { Seo } from '../shared/seo/Seo'
 
 export function PaymentDeliveryPage() {
     return (
-        <main className="py-16">
+        <div className="py-16 pt-20">
             <Seo
                 title="Оплата та доставка"
                 description="Умови оплати та доставки при ремонті стартерів і генераторів. Готівковий та безготівковий розрахунок, самовивіз."
@@ -40,6 +40,6 @@ export function PaymentDeliveryPage() {
                     </p>
                 </section>
             </div>
-        </main>
+        </div>
     )
 }

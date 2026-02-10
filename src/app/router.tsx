@@ -1,50 +1,50 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom'
+import {createBrowserRouter, Navigate} from 'react-router-dom'
 
-import { Layout } from '../pages/Layout'
-import { HomePage } from '../pages/HomePage'
-import { NotFoundPage } from '../pages/NotFoundPage'
-import { ContactsPage } from '../pages/ContactsPage'
-import { PaymentDeliveryPage } from '../pages/PaymentDeliveryPage'
+import {Layout} from '../pages/Layout'
+import {HomePage} from '../pages/HomePage'
+import {NotFoundPage} from '../pages/NotFoundPage'
+import {ContactsPage} from '../pages/ContactsPage'
+import {PaymentDeliveryPage} from '../pages/PaymentDeliveryPage'
 
 // services
-import { ServicesPage } from '../pages/services/ServicesPage'
-import { StartersPage } from '../pages/services/StartersPage'
-import { GeneratorsPage } from '../pages/services/GeneratorsPage'
+import {ServicesPage} from '../pages/services/ServicesPage'
+import {StartersPage} from '../pages/services/StartersPage'
+import {GeneratorsPage} from '../pages/services/GeneratorsPage'
 
 // gallery
-import { GalleryPage } from '../pages/gallery/GalleryPage'
-import { EquipmentPage } from '../pages/gallery/EquipmentPage'
-import { BeforeAfterPage } from '../pages/gallery/BeforeAfterPage'
+import {GalleryPage} from '../pages/gallery/GalleryPage'
+import {EquipmentPage} from '../pages/gallery/EquipmentPage'
+import {BeforeAfterPage} from '../pages/gallery/BeforeAfterPage'
 
 export const router = createBrowserRouter(
     [
         {
             path: '/',
-            element: <Layout />,
-            errorElement: <NotFoundPage />,
+            element: <Layout/>,
+            errorElement: <NotFoundPage/>,
             children: [
                 // Главная
                 {
                     index: true,
-                    element: <HomePage />,
+                    element: <HomePage/>,
                 },
 
                 // Услуги
                 {
                     path: 'services',
-                    element: <ServicesPage />,
+                    element: <ServicesPage/>,
                     children: [
                         {
                             index: true,
-                            element: <Navigate to="starters" replace />,
+                            element: <Navigate to="starters" replace/>,
                         },
                         {
                             path: 'starters',
-                            element: <StartersPage />,
+                            element: <StartersPage/>,
                         },
                         {
                             path: 'generators',
-                            element: <GeneratorsPage />,
+                            element: <GeneratorsPage/>,
                         },
                     ],
                 },
@@ -52,19 +52,19 @@ export const router = createBrowserRouter(
                 // Галерея
                 {
                     path: 'gallery',
-                    element: <GalleryPage />,
+                    element: <GalleryPage/>,
                     children: [
                         {
                             index: true,
-                            element: <Navigate to="equipment" replace />,
+                            element: <Navigate to="equipment" replace/>,
                         },
                         {
                             path: 'equipment',
-                            element: <EquipmentPage />,
+                            element: <EquipmentPage/>,
                         },
                         {
                             path: 'before-after',
-                            element: <BeforeAfterPage />,
+                            element: <BeforeAfterPage/>,
                         },
                     ],
                 },
@@ -72,19 +72,19 @@ export const router = createBrowserRouter(
                 // Оплата / доставка
                 {
                     path: 'payment-delivery',
-                    element: <PaymentDeliveryPage />,
+                    element: <PaymentDeliveryPage/>,
                 },
 
                 // Контакты
                 {
                     path: 'contacts',
-                    element: <ContactsPage />,
+                    element: <ContactsPage/>,
                 },
 
                 // 404 (fallback)
                 {
                     path: '*',
-                    element: <NotFoundPage />,
+                    element: <NotFoundPage/>,
                 },
             ],
         },

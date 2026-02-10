@@ -2,7 +2,7 @@ import { Seo } from '../shared/seo/Seo'
 
 export function ContactsPage() {
     return (
-        <main className="py-16">
+        <div className="py-16 pt-20">
             <Seo
                 title="Контакти"
                 description="Контактна інформація майстерні з ремонту стартерів і генераторів в Одесі. Телефон, адреса, графік роботи."
@@ -82,6 +82,6 @@ export function ContactsPage() {
                     />
                 </section>
             </div>
-        </main>
+        </div>
     )
 }
