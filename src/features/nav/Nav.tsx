@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom'
+import { ROUTES } from '@/shared/constants'
 import { ChevronDown, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
@@ -13,8 +14,8 @@ type NavProps = {
 export function Nav({ mobileOpen, onClose }: NavProps) {
     const location = useLocation()
 
-    const isServicesActive = location.pathname.startsWith('/services')
-    const isGalleryActive = location.pathname.startsWith('/gallery')
+    const isServicesActive = location.pathname.startsWith(ROUTES.services)
+    const isGalleryActive = location.pathname.startsWith(ROUTES.gallery)
 
     const [servicesOpen, setServicesOpen] = useState(false)
     const [galleryOpen, setGalleryOpen] = useState(false)
@@ -38,7 +39,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
     const DesktopNav = (
         <nav className="hidden md:flex items-center gap-8 h-full flex-1">
             <NavLink
-                to="/"
+                to={ROUTES.home}
                 end
                 className={({ isActive }) =>
                     `${navItem} ${isActive ? activeUnderline : ''}`
@@ -50,7 +51,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
             {/* ПОСЛУГИ */}
             <div className="relative group h-full flex items-center">
                 <NavLink
-                    to="/services"
+                    to={ROUTES.services}
                     className={`${navItem} ${isServicesActive ? activeUnderline : ''}`}
                 >
                     Послуги
@@ -72,7 +73,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                     shadow-sm
                 ">
                     <NavLink
-                        to="/services/starters"
+                        to={ROUTES.servicesStarters}
                         className={({ isActive }) =>
                             `block px-4 py-2 hover:bg-gray-100 ${
                                 isActive ? 'bg-gray-100 font-semibold' : ''
@@ -83,7 +84,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                     </NavLink>
 
                     <NavLink
-                        to="/services/generators"
+                        to={ROUTES.servicesGenerators}
                         className={({ isActive }) =>
                             `block px-4 py-2 hover:bg-gray-100 ${
                                 isActive ? 'bg-gray-100 font-semibold' : ''
@@ -98,7 +99,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
             {/* ГАЛЕРЕЯ */}
             <div className="relative group h-full flex items-center">
                 <NavLink
-                    to="/gallery"
+                    to={ROUTES.gallery}
                     className={`${navItem} ${isGalleryActive ? activeUnderline : ''}`}
                 >
                     Галерея
@@ -120,7 +121,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                     shadow-sm
                 ">
                     <NavLink
-                        to="/gallery/equipment"
+                        to={ROUTES.galleryEquipment}
                         className={({ isActive }) =>
                             `block px-4 py-2 hover:bg-gray-100 ${
                                 isActive ? 'bg-gray-100 font-semibold' : ''
@@ -131,7 +132,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                     </NavLink>
 
                     <NavLink
-                        to="/gallery/before-after"
+                        to={ROUTES.galleryBeforeAfter}
                         className={({ isActive }) =>
                             `block px-4 py-2 hover:bg-gray-100 ${
                                 isActive ? 'bg-gray-100 font-semibold' : ''
@@ -144,7 +145,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
             </div>
 
             <NavLink
-                to="/payment-delivery"
+                to={ROUTES.paymentDelivery}
                 className={({ isActive }) =>
                     `${navItem} ${isActive ? activeUnderline : ''}`
                 }
@@ -153,7 +154,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
             </NavLink>
 
             <NavLink
-                to="/contacts"
+                to={ROUTES.contacts}
                 className={({ isActive }) =>
                     `${navItem} ${isActive ? activeUnderline : ''}`
                 }
@@ -188,7 +189,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                     text-base font-medium
                     border-t border-slate-100
                 ">
-                    <NavLink to="/" onClick={onClose}>
+                    <NavLink to={ROUTES.home} onClick={onClose}>
                         Головна
                     </NavLink>
 
@@ -209,10 +210,10 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
 
                         {servicesOpen && (
                             <div className="mt-4 ml-4 flex flex-col gap-4 text-sm text-gray-700">
-                                <NavLink to="/services/starters" onClick={onClose}>
+                                <NavLink to={ROUTES.servicesStarters} onClick={onClose}>
                                     Ремонт стартерів
                                 </NavLink>
-                                <NavLink to="/services/generators" onClick={onClose}>
+                                <NavLink to={ROUTES.servicesGenerators} onClick={onClose}>
                                     Ремонт генераторів
                                 </NavLink>
                             </div>
@@ -236,21 +237,21 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
 
                         {galleryOpen && (
                             <div className="mt-4 ml-4 flex flex-col gap-4 text-sm text-gray-700">
-                                <NavLink to="/gallery/equipment" onClick={onClose}>
+                                <NavLink to={ROUTES.galleryEquipment} onClick={onClose}>
                                     Наше обладнання
                                 </NavLink>
-                                <NavLink to="/gallery/before-after" onClick={onClose}>
+                                <NavLink to={ROUTES.galleryBeforeAfter} onClick={onClose}>
                                     До / Після
                                 </NavLink>
                             </div>
                         )}
                     </div>
 
-                    <NavLink to="/payment-delivery" onClick={onClose}>
+                    <NavLink to={ROUTES.paymentDelivery} onClick={onClose}>
                         Оплата / Доставка
                     </NavLink>
 
-                    <NavLink to="/contacts" onClick={onClose}>
+                    <NavLink to={ROUTES.contacts} onClick={onClose}>
                         Контакти
                     </NavLink>
                 </nav>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { ROUTES } from '@/shared/constants'
 import { Seo } from '../shared/seo/Seo'
 
 export function NotFoundPage() {
@@ -18,7 +19,7 @@ export function NotFoundPage() {
             </p>
 
             <Link
-                to="/"
+                to={ROUTES.home}
                 className="text-sm font-medium text-blue-600 hover:underline"
             >
                 Повернутися на головну

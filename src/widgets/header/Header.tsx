@@ -1,11 +1,10 @@
-import { useState } from 'react'
 import { Menu } from 'lucide-react'
-
 import { LanguageSwitch } from '@/features/nav/LanguageSwitch'
 import { Nav } from '@/features/nav/Nav'
+import { useMobileMenu } from '@/shared/hooks/useMobileMenu'
 
 export default function Header() {
-    const [mobileOpen, setMobileOpen] = useState(false)
+  const { mobileOpen, open, close } = useMobileMenu()
 
     return (
         <>
@@ -33,10 +32,7 @@ export default function Header() {
                     <div className="w-16" />
 
                     {/* DESKTOP NAV */}
-                    <Nav
-                        mobileOpen={mobileOpen}
-                        onClose={() => setMobileOpen(false)}
-                    />
+                    <Nav mobileOpen={mobileOpen} onClose={close} />
 
                     <div className="w-6" />
 
@@ -49,9 +45,9 @@ export default function Header() {
 
                     {/* BURGER */}
                     <button
-                        onClick={() => setMobileOpen(true)}
-                        className="md:hidden ml-auto"
-                        aria-label="Open menu"
+                      onClick={open}
+                      className="md:hidden ml-auto"
+                      aria-label="Open menu"
                     >
                         <Menu />
                     </button>

@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom'
-import { ArrowRight, ChevronRight } from 'lucide-react'
-import { Seo } from '@/shared/seo/Seo.tsx'
+import {ArrowRight, ChevronRight} from 'lucide-react'
+import { Seo } from '@/shared/seo/Seo'
+import { SectionLink } from '@/shared/ui'
+import { ROUTES } from '@/shared/constants'
 
 export function HomePage() {
     return (
@@ -35,7 +37,7 @@ export function HomePage() {
                         </p>
 
                         <NavLink
-                            to="/services"
+                            to={ROUTES.services}
                             className="
                                 group inline-flex items-center justify-center gap-2
                                 rounded bg-blue-600 px-8 py-3
@@ -63,41 +65,16 @@ export function HomePage() {
                         </p>
 
                         <div className="flex flex-col gap-6">
-                            <NavLink
-                                to="/services/starters"
-                                className="
-                                    group rounded border border-gray-200 p-4
-                                    transition-colors hover:border-blue-600
-                                "
-                            >
-                                <p className="mb-2 text-sm text-gray-600">
-                                    Ремонт стартерів з урахуванням реального зносу,
-                                    навантажень і стану вузлів.
-                                </p>
-
-                                <span className="flex items-center gap-1 font-medium text-gray-900">
-                                    Ремонт стартерів
-                                    <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-0.5" />
-                                </span>
-                            </NavLink>
-
-                            <NavLink
-                                to="/services/generators"
-                                className="
-                                    group rounded border border-gray-200 p-4
-                                    transition-colors hover:border-blue-600
-                                "
-                            >
-                                <p className="mb-2 text-sm text-gray-600">
-                                    Генератори перевіряємо під навантаженням,
-                                    а не «на слух» чи візуально.
-                                </p>
-
-                                <span className="flex items-center gap-1 font-medium text-gray-900">
-                                    Ремонт генераторів
-                                    <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-0.5" />
-                                </span>
-                            </NavLink>
+                            <SectionLink
+                                to={ROUTES.servicesStarters}
+                                description="Ремонт стартерів з урахуванням реального зносу, навантажень і стану вузлів."
+                                label="Ремонт стартерів"
+                            />
+                            <SectionLink
+                                to={ROUTES.servicesGenerators}
+                                description="Генератори перевіряємо під навантаженням, а не «на слух» чи візуально."
+                                label="Ремонт генераторів"
+                            />
                         </div>
                     </div>
                 </section>
@@ -115,39 +92,16 @@ export function HomePage() {
                         </p>
 
                         <div className="flex flex-col gap-4">
-                            <NavLink
-                                to="/gallery/equipment"
-                                className="
-                                    group rounded border border-gray-200 px-4 py-3
-                                    transition-colors hover:border-blue-600
-                                "
-                            >
-                                <p className="mb-1 text-sm text-gray-600">
-                                    Обладнання, на якому ми реально працюємо щодня.
-                                </p>
-
-                                <span className="flex items-center gap-1 font-medium text-gray-900">
-                                    Наше обладнання
-                                    <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-0.5" />
-                                </span>
-                            </NavLink>
-
-                            <NavLink
-                                to="/gallery/before-after"
-                                className="
-                                    group rounded border border-gray-200 px-4 py-3
-                                    transition-colors hover:border-blue-600
-                                "
-                            >
-                                <p className="mb-1 text-sm text-gray-600">
-                                    Результати роботи без ретуші та маркетингових фото.
-                                </p>
-
-                                <span className="flex items-center gap-1 font-medium text-gray-900">
-                                    До / Після
-                                    <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-0.5" />
-                                </span>
-                            </NavLink>
+                            <SectionLink
+                                to={ROUTES.galleryEquipment}
+                                description="Обладнання, на якому ми реально працюємо щодня."
+                                label="Наше обладнання"
+                            />
+                            <SectionLink
+                                to={ROUTES.galleryBeforeAfter}
+                                description="Результати роботи без ретуші та маркетингових фото."
+                                label="До / Після"
+                            />
                         </div>
                     </div>
                 </section>
@@ -165,7 +119,7 @@ export function HomePage() {
                         </p>
 
                         <NavLink
-                            to="/payment-delivery"
+                            to={ROUTES.paymentDelivery}
                             className="
                                 group inline-flex items-center gap-1
                                 text-sm font-medium text-blue-600 hover:underline
@@ -190,7 +144,7 @@ export function HomePage() {
                         </p>
 
                         <NavLink
-                            to="/contacts"
+                            to={ROUTES.contacts}
                             className="
                                 group inline-flex items-center gap-1
                                 text-sm font-medium text-blue-600 hover:underline

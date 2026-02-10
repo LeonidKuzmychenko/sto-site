@@ -1,10 +1,12 @@
+import { memo } from 'react'
+
 type BeforeAfterCardProps = {
-    title: string
-    before: string
-    after: string
+  title: string
+  before: string
+  after: string
 }
 
-export function BeforeAfterCard({
+export const BeforeAfterCard = memo(function BeforeAfterCard({
                                     title,
                                     before,
                                     after,
@@ -59,4 +61,4 @@ export function BeforeAfterCard({
             </div>
         </div>
     )
-}
+})

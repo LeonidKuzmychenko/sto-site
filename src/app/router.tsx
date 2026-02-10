@@ -1,40 +1,65 @@
-import {createBrowserRouter, Navigate} from 'react-router-dom'
+import { lazy, Suspense } from 'react'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 
-import {Layout} from '../pages/Layout'
-import {HomePage} from '../pages/HomePage'
-import {NotFoundPage} from '../pages/NotFoundPage'
-import {ContactsPage} from '../pages/ContactsPage'
-import {PaymentDeliveryPage} from '../pages/PaymentDeliveryPage'
+import { Layout } from '../pages/Layout'
 
-// services
-import {StartersPage} from '../pages/services/StartersPage'
-import {GeneratorsPage} from '../pages/services/GeneratorsPage'
+const HomePage = lazy(() => import('../pages/HomePage').then((m) => ({ default: m.HomePage })))
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })))
+const ContactsPage = lazy(() => import('../pages/ContactsPage').then((m) => ({ default: m.ContactsPage })))
+const PaymentDeliveryPage = lazy(() => import('../pages/PaymentDeliveryPage').then((m) => ({ default: m.PaymentDeliveryPage })))
+const StartersPage = lazy(() => import('../pages/services/StartersPage').then((m) => ({ default: m.StartersPage })))
+const GeneratorsPage = lazy(() => import('../pages/services/GeneratorsPage').then((m) => ({ default: m.GeneratorsPage })))
+const EquipmentPage = lazy(() => import('../pages/gallery/EquipmentPage').then((m) => ({ default: m.EquipmentPage })))
+const BeforeAfterPage = lazy(() => import('../pages/gallery/BeforeAfterPage').then((m) => ({ default: m.BeforeAfterPage })))
 
-// gallery
-import {EquipmentPage} from '../pages/gallery/EquipmentPage'
-import {BeforeAfterPage} from '../pages/gallery/BeforeAfterPage'
+function PageFallback() {
+  return (
+    <div className="flex min-h-[50vh] items-center justify-center">
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-blue-600 border-t-transparent" />
+    </div>
+  )
+}
 
 export const router = createBrowserRouter(
     [
         {
             path: '/',
-            element: <Layout/>,
-            errorElement: <NotFoundPage/>,
+            element: <Layout />,
+            // errorElement: (
+            //   <Suspense fallback={<PageFallback />}>
+            //     <NotFoundPage />
+            //   </Suspense>
+            // ),
             children: [
-                {index: true, element: <HomePage/>},
+                {
+                  index: true,
+                  element: (
+                    <Suspense fallback={<PageFallback />}>
+                      <HomePage />
+                    </Suspense>
+                  ),
+                },
 
-                //Услуги
+                // Услуги
                 {
                     path: 'services',
                     element: <Navigate to="starters" replace/>,
                 },
                 {
                     path: 'services/starters',
-                    element: <StartersPage/>,
+                    element: (
+                      <Suspense fallback={<PageFallback />}>
+                        <StartersPage />
+                      </Suspense>
+                    ),
                 },
                 {
                     path: 'services/generators',
-                    element: <GeneratorsPage/>,
+                    element: (
+                      <Suspense fallback={<PageFallback />}>
+                        <GeneratorsPage />
+                      </Suspense>
+                    ),
                 },
                 //Галерея
                 {
@@ -43,26 +68,44 @@ export const router = createBrowserRouter(
                 },
                 {
                     path: 'gallery/equipment',
-                    element: <EquipmentPage/>,
+                    element: (
+                      <Suspense fallback={<PageFallback />}>
+                        <EquipmentPage />
+                      </Suspense>
+                    ),
                 },
                 {
                     path: 'gallery/before-after',
-                    element: <BeforeAfterPage/>,
+                    element: (
+                      <Suspense fallback={<PageFallback />}>
+                        <BeforeAfterPage />
+                      </Suspense>
+                    ),
                 },
                 //Оплата и доставка
                 {
                     path: 'payment-delivery',
-                    element: <PaymentDeliveryPage/>
+                    element: (
+                      <Suspense fallback={<PageFallback />}>
+                        <PaymentDeliveryPage />
+                      </Suspense>
+                    ),
                 },
-                //Контакты
                 {
                     path: 'contacts',
-                    element: <ContactsPage/>
+                    element: (
+                      <Suspense fallback={<PageFallback />}>
+                        <ContactsPage />
+                      </Suspense>
+                    ),
                 },
-                //404
                 {
                     path: '*',
-                    element: <NotFoundPage/>
+                    element: (
+                      <Suspense fallback={<PageFallback />}>
+                        <NotFoundPage />
+                      </Suspense>
+                    ),
                 }
             ],
         },

@@ -1,9 +1,11 @@
+import { memo } from 'react'
+
 type EquipmentCardProps = {
-    title: string
-    image: string
+  title: string
+  image: string
 }
 
-export function EquipmentCard({ title, image }: EquipmentCardProps) {
+export const EquipmentCard = memo(function EquipmentCard({ title, image }: EquipmentCardProps) {
     return (
         <div
             className="
@@ -38,4 +40,4 @@ export function EquipmentCard({ title, image }: EquipmentCardProps) {
             </div>
         </div>
     )
-}
+})
