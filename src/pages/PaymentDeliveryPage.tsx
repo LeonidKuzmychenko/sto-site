@@ -1,4 +1,5 @@
-import {Seo} from '../shared/seo/Seo'
+import { Seo } from '@/shared/seo/Seo'
+import { InfoCard } from '@/shared/ui'
 import {
     CreditCard,
     Banknote,
@@ -8,79 +9,76 @@ import {
     Clock,
     Scale,
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 export function PaymentDeliveryPage() {
+    const { t } = useTranslation()
+
     return (
         <>
             <Seo
-                title="Оплата та доставка"
-                description="Умови оплати та доставки при ремонті стартерів і генераторів. Готівковий та безготівковий розрахунок, Нова Пошта."
+                title={t('paymentDeliveryPage.seo.title')}
+                description={t('paymentDeliveryPage.seo.description')}
             />
-            <section className="py-16 pt-24 mx-auto max-w-6xl px-4">
-                {/* ЗАГОЛОВОК */}
-                <h1 className="text-2xl font-semibold text-gray-900 mb-8">
-                    Оплата та доставка
+
+            <section className="mx-auto max-w-6xl px-4 py-16 pt-24">
+                <h1 className="mb-8 text-2xl font-semibold text-gray-900">
+                    {t('paymentDeliveryPage.title')}
                 </h1>
 
-                {/* ОПЛАТА */}
-                <div className="rounded-lg border border-gray-200 p-6 mb-8">
-                    <h2 className="mb-4 text-xl font-semibold text-gray-900">
-                        Оплата
-                    </h2>
-
-                    <ul className="space-y-3 text-gray-700">
-                        <li className="flex items-center gap-3">
-                            <Banknote className="h-5 w-5 text-blue-600"/>
-                            Готівковий розрахунок
-                        </li>
-                        <li className="flex items-center gap-3">
-                            <CreditCard className="h-5 w-5 text-blue-600"/>
-                            Безготівковий переказ на карту
-                        </li>
-                    </ul>
+                <div className="mb-8">
+                    <InfoCard
+                        title={t('paymentDeliveryPage.payment.title')}
+                        icon={<Banknote className="h-5 w-5 text-blue-600" />}
+                    >
+                        <ul className="space-y-3 text-gray-700">
+                            <li className="flex items-center gap-3">
+                                <Banknote className="h-5 w-5 text-blue-600" />
+                                {t('paymentDeliveryPage.payment.cash')}
+                            </li>
+                            <li className="flex items-center gap-3">
+                                <CreditCard className="h-5 w-5 text-blue-600" />
+                                {t('paymentDeliveryPage.payment.card')}
+                            </li>
+                        </ul>
+                    </InfoCard>
                 </div>
 
-                {/* ДОСТАВКА */}
-                <div className="rounded-lg border border-gray-200 p-6 space-y-6">
-                    <h2 className="text-xl font-semibold text-gray-900">
-                        Доставка
-                    </h2>
-
+                <InfoCard
+                    title={t('paymentDeliveryPage.delivery.title')}
+                    icon={<Truck className="h-5 w-5 text-blue-600" />}
+                >
                     <ul className="space-y-3 text-gray-700">
                         <li className="flex items-center gap-3">
-                            <Truck className="h-5 w-5 text-blue-600"/>
-                            Самовивіз із майстерні
+                            <Truck className="h-5 w-5 text-blue-600" />
+                            {t('paymentDeliveryPage.delivery.pickup')}
                         </li>
                         <li className="flex items-center gap-3">
-                            <Package className="h-5 w-5 text-blue-600"/>
-                            Відправка та отримання деталей через Нову Пошту
+                            <Package className="h-5 w-5 text-blue-600" />
+                            {t('paymentDeliveryPage.delivery.novaPoshta')}
                         </li>
                     </ul>
 
-                    {/* НОВА ПОШТА */}
-                    <div className="rounded-md bg-gray-50 p-4 space-y-2 text-sm text-gray-700">
+                    <div className="mt-4 space-y-2 rounded-md bg-gray-50 p-4 text-sm text-gray-700">
                         <div className="flex items-center gap-2">
-                            <MapPin className="h-4 w-4 text-gray-500"/>
-                            Одеський район, с. Прилиманське, вулиця Центральна (Жовтнева), 168
+                            <MapPin className="h-4 w-4 text-gray-500" />
+                            {t('paymentDeliveryPage.delivery.address')}
                         </div>
-
                         <div className="flex items-center gap-2">
-                            <Clock className="h-4 w-4 text-gray-500"/>
-                            Пн–Нд: 09:00–18:00
+                            <Clock className="h-4 w-4 text-gray-500" />
+                            {t('paymentDeliveryPage.delivery.schedule')}
                         </div>
-
                         <div className="flex items-center gap-2">
-                            <Scale className="h-4 w-4 text-gray-500"/>
-                            Обмеження ваги відправлення — до 30 кг
+                            <Scale className="h-4 w-4 text-gray-500" />
+                            {t('paymentDeliveryPage.delivery.weightLimit')}
                         </div>
                     </div>
 
-                    <p className="text-sm text-gray-600">
-                        Вартість, умови та терміни доставки залежать від тарифів та правил перевізника.
+                    <p className="mt-4 text-sm text-gray-600">
+                        {t('paymentDeliveryPage.delivery.disclaimer')}
                     </p>
-                </div>
+                </InfoCard>
             </section>
         </>
-
     )
 }

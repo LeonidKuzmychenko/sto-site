@@ -1,24 +1,15 @@
-import {EquipmentCard} from '@/features/ui/EquipmentCard'
-
-type EquipmentItem = {
-    id: number
-    title: string
-    image: string
-}
-
-const EQUIPMENT: EquipmentItem[] = [
-    {id: 1, title: 'Автомобильный подъёмник (2-стоечный / 4-стоечный)', image: '/sto-site/1.webp'},
-    {id: 2, title: 'Диагностический сканер OBD-II', image: '/sto-site/2.jpeg'},
-    {id: 3, title: 'Стенд для проверки стартеров и генераторов', image: '/sto-site/3.webp'},
-    {id: 4, title: 'Компрессор с пневмолинией', image: '/sto-site/4.jpg'},
-    {id: 5, title: 'Шиномонтажный станок', image: '/sto-site/5.jpg'},
-    {id: 6, title: 'Балансировочный станок', image: '/sto-site/6.jpg'},
-    {id: 7, title: 'Гидравлический пресс', image: '/sto-site/7.jpg'},
-]
+import { EquipmentCard } from '@/features/ui/EquipmentCard'
+import { Seo } from '@/shared/seo/Seo'
+import { EQUIPMENT } from '@/shared/data/equipment'
 
 export function EquipmentPage() {
-    return (
-        <section className="py-16 pt-24">
+  return (
+    <>
+      <Seo
+        title="Наше обладнання"
+        description="Обладнання майстерні: стенди для стартерів і генераторів, діагностичне обладнання, інструменти."
+      />
+      <section className="py-16 pt-24">
             <div className="mx-auto max-w-6xl px-4">
                 <div>
                     <h1 className="mb-8 text-2xl font-semibold text-gray-900">
@@ -34,10 +25,9 @@ export function EquipmentPage() {
                             </li>
                         ))}
                     </ul>
-                </div>
-            </div>
-        </section>
-
-
-    )
+        </div>
+      </div>
+    </section>
+    </>
+  )
 }

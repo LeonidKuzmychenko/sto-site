@@ -1,206 +1,148 @@
 import { NavLink } from 'react-router-dom'
 import { ArrowRight, ChevronRight } from 'lucide-react'
-import { Seo } from '@/shared/seo/Seo.tsx'
+import { Seo } from '@/shared/seo/Seo'
+import { SectionLink } from '@/shared/ui'
+import { ROUTES } from '@/shared/constants'
+import { BASE_URL } from '@/shared/data/const'
+import { useTranslation } from 'react-i18next'
 
 export function HomePage() {
+    const { t } = useTranslation()
+
     return (
         <>
             <Seo
-                title="Ремонт стартерів та генераторів в Одесі"
-                description="Професійний ремонт автомобільних стартерів і генераторів в Одесі. Діагностика, перевірка на стенді, гарантія."
+                title={t('homePage.seo.title')}
+                description={t('homePage.seo.description')}
                 canonical="https://example.com/"
             />
 
             <div>
-                {/* HERO */}
-                <section
-                    className="
-                        relative flex min-h-screen
-                        items-start justify-center
-                        border-b bg-cover bg-center text-center
-                        pt-64
-                    "
-                    style={{ backgroundImage: 'url(/sto-site/background.png)' }}
-                >
-                    <div className="absolute inset-0 bg-white/40" />
 
-                    <div className="relative mx-auto max-w-3xl px-4">
+                {/* HERO */}
+                <section className="relative flex min-h-screen items-start justify-center overflow-hidden border-b text-center pt-64">
+                    <img
+                        src={`${BASE_URL}/background.avif`}
+                        alt=""
+                        fetchPriority="high"
+                        className="absolute inset-0 h-full w-full object-cover object-center"
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-white/40 z-[1]" />
+
+                    <div className="relative z-10 mx-auto max-w-3xl px-4">
                         <h1 className="mb-6 text-4xl font-semibold text-gray-900">
-                            Ремонт стартерів та генераторів в Одесі
+                            {t('homePage.hero.title')}
                         </h1>
 
                         <p className="mb-10 text-lg text-gray-800">
-                            Професійний ремонт автомобільних стартерів і генераторів
-                            з діагностикою та перевіркою на стенді.
+                            {t('homePage.hero.subtitle')}
                         </p>
 
                         <NavLink
-                            to="/services"
-                            className="
-                                group inline-flex items-center justify-center gap-2
-                                rounded bg-blue-600 px-8 py-3
-                                text-base font-medium text-white
-                                transition-colors hover:bg-blue-700
-                            "
+                            to={ROUTES.services}
+                            className="group inline-flex items-center justify-center gap-2 rounded bg-blue-600 px-8 py-3 text-base font-medium text-white transition-colors hover:bg-blue-700"
                         >
-                            Переглянути послуги
+                            {t('homePage.hero.cta')}
                             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </NavLink>
                     </div>
                 </section>
 
-                {/* УСЛУГИ */}
+                {/* SERVICES */}
                 <section className="py-16">
                     <div className="mx-auto max-w-6xl px-4">
                         <h2 className="mb-6 text-xl font-semibold text-gray-900">
-                            Наші послуги
+                            {t('homePage.services.title')}
                         </h2>
 
                         <p className="mb-8 max-w-2xl text-gray-700">
-                            Ми працюємо з вузькою спеціалізацією — стартерами та генераторами.
-                            Це дозволяє глибоко розуміти типові несправності й не експериментувати
-                            з автомобілем клієнта.
+                            {t('homePage.services.description')}
                         </p>
 
                         <div className="flex flex-col gap-6">
-                            <NavLink
-                                to="/services/starters"
-                                className="
-                                    group rounded border border-gray-200 p-4
-                                    transition-colors hover:border-blue-600
-                                "
-                            >
-                                <p className="mb-2 text-sm text-gray-600">
-                                    Ремонт стартерів з урахуванням реального зносу,
-                                    навантажень і стану вузлів.
-                                </p>
-
-                                <span className="flex items-center gap-1 font-medium text-gray-900">
-                                    Ремонт стартерів
-                                    <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-0.5" />
-                                </span>
-                            </NavLink>
-
-                            <NavLink
-                                to="/services/generators"
-                                className="
-                                    group rounded border border-gray-200 p-4
-                                    transition-colors hover:border-blue-600
-                                "
-                            >
-                                <p className="mb-2 text-sm text-gray-600">
-                                    Генератори перевіряємо під навантаженням,
-                                    а не «на слух» чи візуально.
-                                </p>
-
-                                <span className="flex items-center gap-1 font-medium text-gray-900">
-                                    Ремонт генераторів
-                                    <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-0.5" />
-                                </span>
-                            </NavLink>
+                            <SectionLink
+                                to={ROUTES.servicesStarters}
+                                label={t('homePage.services.startersLabel')}
+                                description={t('homePage.services.startersDesc')}
+                            />
+                            <SectionLink
+                                to={ROUTES.servicesGenerators}
+                                label={t('homePage.services.generatorsLabel')}
+                                description={t('homePage.services.generatorsDesc')}
+                            />
                         </div>
                     </div>
                 </section>
 
-                {/* ГАЛЕРЕЯ */}
+                {/* GALLERY */}
                 <section className="border-t py-16">
                     <div className="mx-auto max-w-6xl px-4">
                         <h2 className="mb-6 text-xl font-semibold text-gray-900">
-                            Галерея
+                            {t('homePage.gallery.title')}
                         </h2>
 
                         <p className="mb-8 max-w-2xl text-gray-700">
-                            Ми не економимо на обладнанні й не приховуємо робочий процес.
-                            Використовуємо стенди та інструменти, якими можемо відкрито пишатися.
+                            {t('homePage.gallery.description')}
                         </p>
 
                         <div className="flex flex-col gap-4">
-                            <NavLink
-                                to="/gallery/equipment"
-                                className="
-                                    group rounded border border-gray-200 px-4 py-3
-                                    transition-colors hover:border-blue-600
-                                "
-                            >
-                                <p className="mb-1 text-sm text-gray-600">
-                                    Обладнання, на якому ми реально працюємо щодня.
-                                </p>
-
-                                <span className="flex items-center gap-1 font-medium text-gray-900">
-                                    Наше обладнання
-                                    <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-0.5" />
-                                </span>
-                            </NavLink>
-
-                            <NavLink
-                                to="/gallery/before-after"
-                                className="
-                                    group rounded border border-gray-200 px-4 py-3
-                                    transition-colors hover:border-blue-600
-                                "
-                            >
-                                <p className="mb-1 text-sm text-gray-600">
-                                    Результати роботи без ретуші та маркетингових фото.
-                                </p>
-
-                                <span className="flex items-center gap-1 font-medium text-gray-900">
-                                    До / Після
-                                    <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-0.5" />
-                                </span>
-                            </NavLink>
+                            <SectionLink
+                                to={ROUTES.galleryEquipment}
+                                label={t('homePage.gallery.equipmentLabel')}
+                                description={t('homePage.gallery.equipmentDesc')}
+                            />
+                            <SectionLink
+                                to={ROUTES.galleryBeforeAfter}
+                                label={t('homePage.gallery.beforeAfterLabel')}
+                                description={t('homePage.gallery.beforeAfterDesc')}
+                            />
                         </div>
                     </div>
                 </section>
 
-                {/* ОПЛАТА / ДОСТАВКА */}
+                {/* PAYMENT */}
                 <section className="border-t py-16">
                     <div className="mx-auto max-w-6xl px-4">
                         <h2 className="mb-4 text-xl font-semibold text-gray-900">
-                            Оплата та доставка
+                            {t('homePage.payment.title')}
                         </h2>
 
                         <p className="mb-3 max-w-2xl text-gray-700">
-                            Умови обговорюємо заздалегідь.
-                            Без дрібного шрифту, несподіваних доплат і «потім пояснимо».
+                            {t('homePage.payment.description')}
                         </p>
 
                         <NavLink
-                            to="/payment-delivery"
-                            className="
-                                group inline-flex items-center gap-1
-                                text-sm font-medium text-blue-600 hover:underline
-                            "
+                            to={ROUTES.paymentDelivery}
+                            className="group inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:underline"
                         >
-                            Детальніше
+                            {t('homePage.payment.cta')}
                             <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                         </NavLink>
                     </div>
                 </section>
 
-                {/* КОНТАКТИ */}
+                {/* CONTACTS */}
                 <section className="border-t py-16">
                     <div className="mx-auto max-w-6xl px-4">
                         <h2 className="mb-4 text-xl font-semibold text-gray-900">
-                            Контакти
+                            {t('homePage.contacts.title')}
                         </h2>
 
                         <p className="mb-3 max-w-2xl text-gray-700">
-                            Завжди можна приїхати особисто, поставити питання
-                            та побачити процес роботи наживо.
+                            {t('homePage.contacts.description')}
                         </p>
 
                         <NavLink
-                            to="/contacts"
-                            className="
-                                group inline-flex items-center gap-1
-                                text-sm font-medium text-blue-600 hover:underline
-                            "
+                            to={ROUTES.contacts}
+                            className="group inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:underline"
                         >
-                            Перейти до контактів
+                            {t('homePage.contacts.cta')}
                             <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                         </NavLink>
                     </div>
                 </section>
+
             </div>
         </>
     )
