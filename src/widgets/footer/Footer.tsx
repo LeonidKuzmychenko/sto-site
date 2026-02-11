@@ -1,10 +1,12 @@
-import {NavLink} from 'react-router-dom'
-import {Phone, MapPin} from 'lucide-react'
+import { NavLink } from 'react-router-dom'
+import { Phone, MapPin } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
-import {PrivacyTooltip} from '@/shared/ui'
-import {MESSENGERS, SOCIAL_NETWORKS} from '@/shared/data/social'
+import { PrivacyTooltip } from '@/shared/ui'
+import { MESSENGERS, SOCIAL_NETWORKS } from '@/shared/data/social'
 
 export default function Footer() {
+    const { t } = useTranslation()
     const year = new Date().getFullYear()
 
     const linkBase =
@@ -16,41 +18,34 @@ export default function Footer() {
             role="contentinfo"
         >
             <div className="mx-auto max-w-6xl px-4 py-14">
-
                 <div className="rounded-2xl border border-neutral-800 bg-neutral-900/60 px-6 py-10 md:px-8">
 
                     <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
 
                         {/* КОНТАКТИ */}
-                        <div className="space-y-8">
+                        <section className="space-y-8">
                             <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-white">
-                                Контакти
+                                {t('footer.contacts.title')}
                             </h3>
 
-                            {/* Телефон */}
                             <a
                                 href="tel:+380XXXXXXXXX"
                                 className="flex items-center gap-3 text-white transition-opacity hover:opacity-80"
                             >
-                                <Phone className="h-4 w-4 text-neutral-400"/>
+                                <Phone className="h-4 w-4 text-neutral-400" />
                                 <span className="text-sm font-medium tracking-wide">
-                                    +380 XX XXX XX XX
+                                    {t('footer.contacts.phone')}
                                 </span>
                             </a>
 
-                            {/* Адреса */}
                             <div className="flex items-start gap-3 text-sm text-neutral-400 leading-6">
-                                <MapPin className="mt-1 h-4 w-4 shrink-0 text-neutral-500"/>
-                                <p>
-                                    Одеська обл., Овідіопольський р-н, с. Прилиманське,
-                                    вул. Центральна (Жовтнева), 170
-                                </p>
+                                <MapPin className="mt-1 h-4 w-4 shrink-0 text-neutral-500" />
+                                <p>{t('footer.contacts.address')}</p>
                             </div>
 
-                            {/* Месенджери */}
                             <div className="space-y-3">
                                 <p className="text-xs uppercase tracking-wide text-neutral-500">
-                                    Месенджери
+                                    {t('footer.contacts.messengers')}
                                 </p>
 
                                 <div className="flex gap-3">
@@ -61,13 +56,7 @@ export default function Footer() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             aria-label={item.label}
-                                            className="
-                                                flex h-10 w-10 items-center justify-center
-                                                rounded-lg
-                                                bg-neutral-800/50
-                                                transition-colors
-                                                hover:bg-neutral-700
-                                            "
+                                            className="flex h-10 w-10 items-center justify-center rounded-lg bg-neutral-800/50 transition-colors hover:bg-neutral-700"
                                         >
                                             <img
                                                 src={item.icon}
@@ -79,10 +68,9 @@ export default function Footer() {
                                 </div>
                             </div>
 
-                            {/* Соціальні мережі */}
                             <div className="space-y-3">
                                 <p className="text-xs uppercase tracking-wide text-neutral-500">
-                                    Соціальні мережі
+                                    {t('footer.contacts.social')}
                                 </p>
 
                                 <div className="flex gap-3">
@@ -93,13 +81,7 @@ export default function Footer() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             aria-label={item.label}
-                                            className="
-                                                flex h-10 w-10 items-center justify-center
-                                                rounded-lg
-                                                bg-neutral-800/50
-                                                transition-colors
-                                                hover:bg-neutral-700
-                                            "
+                                            className="flex h-10 w-10 items-center justify-center rounded-lg bg-neutral-800/50 transition-colors hover:bg-neutral-700"
                                         >
                                             <img
                                                 src={item.icon}
@@ -110,70 +92,70 @@ export default function Footer() {
                                     ))}
                                 </div>
                             </div>
-                        </div>
+                        </section>
 
                         {/* МЕНЮ */}
-                        <div className="space-y-6 lg:border-l lg:border-neutral-800 lg:pl-8">
+                        <section className="space-y-6 lg:border-l lg:border-neutral-800 lg:pl-8">
                             <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-white">
-                                Меню
+                                {t('footer.menu.title')}
                             </h3>
 
                             <nav className="grid gap-3 text-sm">
                                 <NavLink to="/" className={linkBase}>
-                                    Головна
+                                    {t('footer.menu.home')}
                                 </NavLink>
                                 <NavLink to="/gallery/equipment" className={linkBase}>
-                                    Обладнання
+                                    {t('footer.menu.equipment')}
                                 </NavLink>
                                 <NavLink to="/gallery/before-after" className={linkBase}>
-                                    До / Після
+                                    {t('footer.menu.beforeAfter')}
                                 </NavLink>
                                 <NavLink to="/payment-delivery" className={linkBase}>
-                                    Оплата і доставка
+                                    {t('footer.menu.paymentDelivery')}
                                 </NavLink>
                                 <NavLink to="/contacts" className={linkBase}>
-                                    Контакти
+                                    {t('footer.menu.contacts')}
                                 </NavLink>
                             </nav>
-                        </div>
+                        </section>
 
                         {/* ПОСЛУГИ */}
-                        <div className="space-y-6 lg:border-l lg:border-neutral-800 lg:pl-8">
+                        <section className="space-y-6 lg:border-l lg:border-neutral-800 lg:pl-8">
                             <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-white">
-                                Послуги
+                                {t('footer.services.title')}
                             </h3>
 
                             <nav className="grid gap-3 text-sm">
                                 <NavLink to="/services/starters" className={linkBase}>
-                                    Ремонт стартерів
+                                    {t('footer.services.starters')}
                                 </NavLink>
                                 <NavLink to="/services/generators" className={linkBase}>
-                                    Ремонт генераторів
+                                    {t('footer.services.generators')}
                                 </NavLink>
                             </nav>
-                        </div>
+                        </section>
 
                         {/* ІНФОРМАЦІЯ */}
-                        <div className="space-y-6 lg:border-l lg:border-neutral-800 lg:pl-8">
+                        <section className="space-y-6 lg:border-l lg:border-neutral-800 lg:pl-8">
                             <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-white">
-                                Інформація
+                                {t('footer.info.title')}
                             </h3>
 
                             <div className="text-sm text-neutral-400 leading-6">
-                                <p>СТО «Заказ»</p>
-                                <p>Ремонт стартерів та генераторів</p>
+                                <p>{t('footer.info.company')}</p>
+                                <p>{t('footer.info.description')}</p>
                             </div>
 
-                            <PrivacyTooltip/>
-                        </div>
-
+                            <PrivacyTooltip />
+                        </section>
                     </div>
 
-                    {/* НИЖНЯЯ ПОЛОСА */}
+                    {/* НИЖНЯ ПОЛОСА */}
                     <div className="mt-12 border-t border-neutral-800 pt-6">
-                        <div
-                            className="flex flex-col gap-3 text-sm text-neutral-500 md:flex-row md:items-center md:justify-between">
-                            <div>© {year} СТО «Заказ». Всі права захищені.</div>
+                        <div className="flex flex-col gap-3 text-sm text-neutral-500 md:flex-row md:items-center md:justify-between">
+                            <div>
+                                © {year} {t('footer.bottom.copyright')}
+                            </div>
 
                             <a
                                 href="https://www.linkedin.com/in/leonid-kuzmychenko/"
@@ -181,7 +163,7 @@ export default function Footer() {
                                 rel="noopener noreferrer"
                                 className="transition-colors hover:text-white"
                             >
-                                Created by Leonid Kuzmychenko
+                                {t('footer.bottom.createdBy')}
                             </a>
                         </div>
                     </div>

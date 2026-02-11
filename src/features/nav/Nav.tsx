@@ -3,6 +3,7 @@ import { ROUTES } from '@/shared/constants'
 import { ChevronDown, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { useTranslation } from 'react-i18next'
 
 import { LanguageSwitch } from './LanguageSwitch'
 
@@ -12,6 +13,7 @@ type NavProps = {
 }
 
 export function Nav({ mobileOpen, onClose }: NavProps) {
+    const { t } = useTranslation()
     const location = useLocation()
 
     const isServicesActive = location.pathname.startsWith(ROUTES.services)
@@ -33,11 +35,11 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
     const activeUnderline =
         'after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-blue-600 after:content-[""]'
 
-    /* =======================
-       DESKTOP NAV
-    ======================= */
+    /* ================= DESKTOP ================= */
+
     const DesktopNav = (
         <nav className="hidden md:flex items-center gap-8 h-full flex-1">
+
             <NavLink
                 to={ROUTES.home}
                 end
@@ -45,33 +47,25 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                     `${navItem} ${isActive ? activeUnderline : ''}`
                 }
             >
-                Головна
+                {t('nav.home')}
             </NavLink>
 
-            {/* ПОСЛУГИ */}
+            {/* SERVICES */}
             <div className="relative group h-full flex items-center">
                 <NavLink
                     to={ROUTES.services}
                     className={`${navItem} ${isServicesActive ? activeUnderline : ''}`}
                 >
-                    Послуги
+                    {t('nav.services')}
                     <ChevronDown
                         size={16}
-                        className={`
-                            transition-transform duration-200
-                            ${isServicesActive ? 'rotate-180' : 'group-hover:rotate-180'}
-                        `}
+                        className={`transition-transform duration-200 ${
+                            isServicesActive ? 'rotate-180' : 'group-hover:rotate-180'
+                        }`}
                     />
                 </NavLink>
 
-                <div className="
-                    absolute left-0 top-full
-                    hidden group-hover:block
-                    min-w-52
-                    rounded-md border
-                    bg-white
-                    shadow-sm
-                ">
+                <div className="absolute left-0 top-full hidden group-hover:block min-w-52 rounded-md border bg-white shadow-sm">
                     <NavLink
                         to={ROUTES.servicesStarters}
                         className={({ isActive }) =>
@@ -80,7 +74,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                             }`
                         }
                     >
-                        Ремонт стартерів
+                        {t('nav.servicesStarters')}
                     </NavLink>
 
                     <NavLink
@@ -91,35 +85,27 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                             }`
                         }
                     >
-                        Ремонт генераторів
+                        {t('nav.servicesGenerators')}
                     </NavLink>
                 </div>
             </div>
 
-            {/* ГАЛЕРЕЯ */}
+            {/* GALLERY */}
             <div className="relative group h-full flex items-center">
                 <NavLink
                     to={ROUTES.gallery}
                     className={`${navItem} ${isGalleryActive ? activeUnderline : ''}`}
                 >
-                    Галерея
+                    {t('nav.gallery')}
                     <ChevronDown
                         size={16}
-                        className={`
-                            transition-transform duration-200
-                            ${isGalleryActive ? 'rotate-180' : 'group-hover:rotate-180'}
-                        `}
+                        className={`transition-transform duration-200 ${
+                            isGalleryActive ? 'rotate-180' : 'group-hover:rotate-180'
+                        }`}
                     />
                 </NavLink>
 
-                <div className="
-                    absolute left-0 top-full
-                    hidden group-hover:block
-                    min-w-52
-                    rounded-md border
-                    bg-white
-                    shadow-sm
-                ">
+                <div className="absolute left-0 top-full hidden group-hover:block min-w-52 rounded-md border bg-white shadow-sm">
                     <NavLink
                         to={ROUTES.galleryEquipment}
                         className={({ isActive }) =>
@@ -128,7 +114,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                             }`
                         }
                     >
-                        Наше обладнання
+                        {t('nav.galleryEquipment')}
                     </NavLink>
 
                     <NavLink
@@ -139,7 +125,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                             }`
                         }
                     >
-                        До / Після
+                        {t('nav.galleryBeforeAfter')}
                     </NavLink>
                 </div>
             </div>
@@ -150,7 +136,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                     `${navItem} ${isActive ? activeUnderline : ''}`
                 }
             >
-                Оплата / Доставка
+                {t('nav.paymentDelivery')}
             </NavLink>
 
             <NavLink
@@ -159,47 +145,37 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                     `${navItem} ${isActive ? activeUnderline : ''}`
                 }
             >
-                Контакти
+                {t('nav.contacts')}
             </NavLink>
         </nav>
     )
 
-    /* =======================
-       MOBILE OVERLAY (PORTAL)
-    ======================= */
+    /* ================= MOBILE ================= */
+
     const MobileOverlay =
         mobileOpen &&
         createPortal(
             <div className="fixed inset-0 z-[100] bg-white">
-                {/* TOP BAR */}
-                <div className="
-                    flex h-16 items-center justify-between px-6
-                    border-b border-slate-200
-                ">
+
+                <div className="flex h-16 items-center justify-between px-6 border-b border-slate-200">
                     <LanguageSwitch />
-                    <button onClick={onClose} aria-label="Close menu">
+                    <button onClick={onClose} aria-label={t('nav.closeMenu')}>
                         <X />
                     </button>
                 </div>
 
-                {/* MENU */}
-                <nav className="
-                    flex flex-col gap-6
-                    px-6 py-8
-                    text-base font-medium
-                    border-t border-slate-100
-                ">
+                <nav className="flex flex-col gap-6 px-6 py-8 text-base font-medium border-t border-slate-100">
+
                     <NavLink to={ROUTES.home} onClick={onClose}>
-                        Головна
+                        {t('nav.home')}
                     </NavLink>
 
-                    {/* ПОСЛУГИ */}
                     <div>
                         <button
                             onClick={() => setServicesOpen(v => !v)}
                             className="flex w-full items-center justify-between"
                         >
-                            <span>Послуги</span>
+                            <span>{t('nav.services')}</span>
                             <ChevronDown
                                 size={16}
                                 className={`transition-transform ${
@@ -211,22 +187,21 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                         {servicesOpen && (
                             <div className="mt-4 ml-4 flex flex-col gap-4 text-sm text-gray-700">
                                 <NavLink to={ROUTES.servicesStarters} onClick={onClose}>
-                                    Ремонт стартерів
+                                    {t('nav.servicesStarters')}
                                 </NavLink>
                                 <NavLink to={ROUTES.servicesGenerators} onClick={onClose}>
-                                    Ремонт генераторів
+                                    {t('nav.servicesGenerators')}
                                 </NavLink>
                             </div>
                         )}
                     </div>
 
-                    {/* ГАЛЕРЕЯ */}
                     <div>
                         <button
                             onClick={() => setGalleryOpen(v => !v)}
                             className="flex w-full items-center justify-between"
                         >
-                            <span>Галерея</span>
+                            <span>{t('nav.gallery')}</span>
                             <ChevronDown
                                 size={16}
                                 className={`transition-transform ${
@@ -238,21 +213,21 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                         {galleryOpen && (
                             <div className="mt-4 ml-4 flex flex-col gap-4 text-sm text-gray-700">
                                 <NavLink to={ROUTES.galleryEquipment} onClick={onClose}>
-                                    Наше обладнання
+                                    {t('nav.galleryEquipment')}
                                 </NavLink>
                                 <NavLink to={ROUTES.galleryBeforeAfter} onClick={onClose}>
-                                    До / Після
+                                    {t('nav.galleryBeforeAfter')}
                                 </NavLink>
                             </div>
                         )}
                     </div>
 
                     <NavLink to={ROUTES.paymentDelivery} onClick={onClose}>
-                        Оплата / Доставка
+                        {t('nav.paymentDelivery')}
                     </NavLink>
 
                     <NavLink to={ROUTES.contacts} onClick={onClose}>
-                        Контакти
+                        {t('nav.contacts')}
                     </NavLink>
                 </nav>
             </div>,
