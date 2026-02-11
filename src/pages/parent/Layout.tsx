@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import Footer from '@/widgets/footer/Footer'
+import Footer from '@/widgets/footer/Footer.tsx'
 import Header from "@/widgets/header/Header.tsx";
 
 export function Layout() {

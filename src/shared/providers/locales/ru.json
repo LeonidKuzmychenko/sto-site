@@ -18,7 +18,12 @@
     "services": {
       "title": "Услуги",
       "starters": "Ремонт стартеров",
-      "generators": "Ремонт генераторов"
+      "generators": "Ремонт генераторов",
+      "maintenance": "Техническое обслуживание",
+      "mechanical": "Слесарные работы",
+      "diagnostics": "Диагностика",
+      "partsSelection": "Подбор запчастей",
+      "wiring": "Ремонт электропроводки"
     },
     "info": {
       "title": "Информация",
@@ -47,6 +52,11 @@
     "services": "Услуги",
     "servicesStarters": "Ремонт стартеров",
     "servicesGenerators": "Ремонт генераторов",
+    "servicesMaintenance": "Техническое обслуживание",
+    "servicesMechanical": "Слесарные работы",
+    "servicesDiagnostics": "Диагностика",
+    "servicesPartsSelection": "Подбор запчастей",
+    "servicesWiring": "Ремонт электропроводки",
     "gallery": "Галерея",
     "galleryEquipment": "Наше оборудование",
     "galleryBeforeAfter": "До / После",
@@ -135,6 +145,35 @@
       "title": "Контакты",
       "description": "Вы всегда можете приехать лично, задать вопросы и увидеть процесс работы вживую.",
       "cta": "Перейти к контактам"
+    }
+  },
+  "equipmentPage": {
+    "title": "Наше оборудование",
+    "meta": {
+      "title": "Наше оборудование",
+      "description": "Профессиональное оборудование мастерской для диагностики и ремонта стартеров и генераторов"
+    },
+    "equipment": {
+      "ms005a": {
+        "title": "MSG Equipment MS005A",
+        "description": "Стенд для диагностики генераторов и стартеров"
+      },
+      "ms016a": {
+        "title": "MSG Equipment MS016A",
+        "description": "Тестер для диагностики реле-регуляторов генераторов"
+      },
+      "ms014": {
+        "title": "MSG Equipment MS014",
+        "description": "Тестер для диагностики статорных обмоток и диодных мостов генераторов"
+      },
+      "ms015": {
+        "title": "MSG Equipment MS015",
+        "description": "Тестер для диагностики реле-регуляторов генераторов"
+      },
+      "kdp200": {
+        "title": "CORMAK KDP200",
+        "description": "Пескоструйная камера"
+      }
     }
   }
 }

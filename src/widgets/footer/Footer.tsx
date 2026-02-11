@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import { PrivacyTooltip } from '@/shared/ui'
 import { MESSENGERS, SOCIAL_NETWORKS } from '@/shared/data/social'
+import {ROUTES} from "@/shared/constants";
 
 export default function Footer() {
     const { t } = useTranslation()
@@ -101,23 +102,30 @@ export default function Footer() {
                             </h3>
 
                             <nav className="grid gap-3 text-sm">
-                                <NavLink to="/" className={linkBase}>
+
+                                <NavLink to={ROUTES.home} className={linkBase}>
                                     {t('footer.menu.home')}
                                 </NavLink>
-                                <NavLink to="/gallery/equipment" className={linkBase}>
+
+                                <NavLink to={ROUTES.galleryEquipment} className={linkBase}>
                                     {t('footer.menu.equipment')}
                                 </NavLink>
-                                <NavLink to="/gallery/before-after" className={linkBase}>
+
+                                <NavLink to={ROUTES.galleryBeforeAfter} className={linkBase}>
                                     {t('footer.menu.beforeAfter')}
                                 </NavLink>
-                                <NavLink to="/payment-delivery" className={linkBase}>
+
+                                <NavLink to={ROUTES.paymentDelivery} className={linkBase}>
                                     {t('footer.menu.paymentDelivery')}
                                 </NavLink>
-                                <NavLink to="/contacts" className={linkBase}>
+
+                                <NavLink to={ROUTES.contacts} className={linkBase}>
                                     {t('footer.menu.contacts')}
                                 </NavLink>
+
                             </nav>
                         </section>
+
 
                         {/* ПОСЛУГИ */}
                         <section className="space-y-6 lg:border-l lg:border-neutral-800 lg:pl-8">
@@ -126,14 +134,38 @@ export default function Footer() {
                             </h3>
 
                             <nav className="grid gap-3 text-sm">
-                                <NavLink to="/services/starters" className={linkBase}>
+
+                                <NavLink to={ROUTES.servicesStarters} className={linkBase}>
                                     {t('footer.services.starters')}
                                 </NavLink>
-                                <NavLink to="/services/generators" className={linkBase}>
+
+                                <NavLink to={ROUTES.servicesGenerators} className={linkBase}>
                                     {t('footer.services.generators')}
                                 </NavLink>
+
+                                <NavLink to={ROUTES.servicesMaintenance} className={linkBase}>
+                                    {t('footer.services.maintenance')}
+                                </NavLink>
+
+                                <NavLink to={ROUTES.servicesMechanical} className={linkBase}>
+                                    {t('footer.services.mechanical')}
+                                </NavLink>
+
+                                <NavLink to={ROUTES.servicesDiagnostics} className={linkBase}>
+                                    {t('footer.services.diagnostics')}
+                                </NavLink>
+
+                                <NavLink to={ROUTES.servicesPartsSelection} className={linkBase}>
+                                    {t('footer.services.partsSelection')}
+                                </NavLink>
+
+                                <NavLink to={ROUTES.servicesWiring} className={linkBase}>
+                                    {t('footer.services.wiring')}
+                                </NavLink>
+
                             </nav>
                         </section>
+
 
                         {/* ІНФОРМАЦІЯ */}
                         <section className="space-y-6 lg:border-l lg:border-neutral-800 lg:pl-8">

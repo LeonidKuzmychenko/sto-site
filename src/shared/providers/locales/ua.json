@@ -18,15 +18,20 @@
     "services": {
       "title": "Послуги",
       "starters": "Ремонт стартерів",
-      "generators": "Ремонт генераторів"
+      "generators": "Ремонт генераторів",
+      "maintenance": "Технічне обслуговування",
+      "mechanical": "Слюсарні роботи",
+      "diagnostics": "Діагностика",
+      "partsSelection": "Підбір запчастин",
+      "wiring": "Ремонт електропроводки"
     },
     "info": {
       "title": "Інформація",
-      "company": "СТО «Заказ»",
+      "company": "СТО «?»",
       "description": "Ремонт стартерів та генераторів"
     },
     "bottom": {
-      "copyright": "СТО «Заказ». Всі права захищені.",
+      "copyright": "СТО «?». Всі права захищені.",
       "createdBy": "Created by Leonid Kuzmychenko"
     }
   },
@@ -47,6 +52,11 @@
     "services": "Послуги",
     "servicesStarters": "Ремонт стартерів",
     "servicesGenerators": "Ремонт генераторів",
+    "servicesMaintenance": "Технічне обслуговування",
+    "servicesMechanical": "Слюсарні роботи",
+    "servicesDiagnostics": "Діагностика",
+    "servicesPartsSelection": "Підбір запчастин",
+    "servicesWiring": "Ремонт електропроводки",
     "gallery": "Галерея",
     "galleryEquipment": "Наше обладнання",
     "galleryBeforeAfter": "До / Після",
@@ -135,6 +145,35 @@
       "title": "Контакти",
       "description": "Завжди можна приїхати особисто, поставити питання та побачити процес роботи наживо.",
       "cta": "Перейти до контактів"
+    }
+  },
+  "equipmentPage": {
+    "title": "Наше обладнання",
+    "meta": {
+      "title": "Наше обладнання",
+      "description": "Професійне обладнання майстерні для діагностики та ремонту"
+    },
+    "equipment": {
+      "ms005a": {
+        "title": "MSG Equipment MS005A",
+        "description": "Стенд для діагностики генераторів та стартерів"
+      },
+      "ms016a": {
+        "title": "MSG Equipment MS016A",
+        "description": "Тестер для діагностики реле-регуляторів генераторів"
+      },
+      "ms014": {
+        "title": "MSG Equipment MS014",
+        "description": "Тестер для діагностики статорних обмоток та діодних мостів генераторів"
+      },
+      "ms015": {
+        "title": "MSG Equipment MS015",
+        "description": "Тестер для діагностики реле-регуляторів генераторів"
+      },
+      "kdp200": {
+        "title": "CORMAK KDP200",
+        "description": "Піскоструминна камера"
+      }
     }
   }
 }
