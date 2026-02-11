@@ -52,6 +52,7 @@ export function HomePage() {
                 {/* SERVICES */}
                 <section className="py-16">
                     <div className="mx-auto max-w-6xl px-4">
+
                         <h2 className="mb-6 text-xl font-semibold text-gray-900">
                             {t('homePage.services.title')}
                         </h2>
@@ -61,16 +62,49 @@ export function HomePage() {
                         </p>
 
                         <div className="flex flex-col gap-6">
+
                             <SectionLink
                                 to={ROUTES.servicesStarters}
                                 label={t('homePage.services.startersLabel')}
                                 description={t('homePage.services.startersDesc')}
                             />
+
                             <SectionLink
                                 to={ROUTES.servicesGenerators}
                                 label={t('homePage.services.generatorsLabel')}
                                 description={t('homePage.services.generatorsDesc')}
                             />
+
+                            <SectionLink
+                                to={ROUTES.servicesDiagnostics}
+                                label={t('homePage.services.diagnosticsLabel')}
+                                description={t('homePage.services.diagnosticsDesc')}
+                            />
+
+                            <SectionLink
+                                to={ROUTES.servicesWiring}
+                                label={t('homePage.services.wiringLabel')}
+                                description={t('homePage.services.wiringDesc')}
+                            />
+
+                            <SectionLink
+                                to={ROUTES.servicesMaintenance}
+                                label={t('homePage.services.maintenanceLabel')}
+                                description={t('homePage.services.maintenanceDesc')}
+                            />
+
+                            <SectionLink
+                                to={ROUTES.servicesMechanical}
+                                label={t('homePage.services.mechanicalLabel')}
+                                description={t('homePage.services.mechanicalDesc')}
+                            />
+
+                            <SectionLink
+                                to={ROUTES.servicesPartsSelection}
+                                label={t('homePage.services.partsSelectionLabel')}
+                                description={t('homePage.services.partsSelectionDesc')}
+                            />
+
                         </div>
                     </div>
                 </section>
