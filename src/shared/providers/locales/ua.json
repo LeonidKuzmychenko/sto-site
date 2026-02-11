@@ -1,7 +1,33 @@
 {
-  "nav": {
-    "services": "Послуги",
-    "prices": "Ціни",
-    "contacts": "Контакти"
+  "footer": {
+    "contacts": {
+      "title": "Контакти",
+      "phone": "+380 XX XXX XX XX",
+      "address": "Одеська обл., Овідіопольський р-н, с. Прилиманське, вул. Центральна (Жовтнева), 170",
+      "messengers": "Месенджери",
+      "social": "Соціальні мережі"
+    },
+    "menu": {
+      "title": "Меню",
+      "home": "Головна",
+      "equipment": "Обладнання",
+      "beforeAfter": "До / Після",
+      "paymentDelivery": "Оплата і доставка",
+      "contacts": "Контакти"
+    },
+    "services": {
+      "title": "Послуги",
+      "starters": "Ремонт стартерів",
+      "generators": "Ремонт генераторів"
+    },
+    "info": {
+      "title": "Інформація",
+      "company": "СТО «Заказ»",
+      "description": "Ремонт стартерів та генераторів"
+    },
+    "bottom": {
+      "copyright": "СТО «Заказ». Всі права захищені.",
+      "createdBy": "Created by Leonid Kuzmychenko"
+    }
   }
 }

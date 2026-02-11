@@ -2,6 +2,7 @@ import { Menu } from 'lucide-react'
 import { LanguageSwitch } from '@/features/nav/LanguageSwitch'
 import { Nav } from '@/features/nav/Nav'
 import { useMobileMenu } from '@/shared/hooks/useMobileMenu'
+import {BASE_URL} from "@/shared/data/const.ts";
 
 export default function Header() {
     const { mobileOpen, open, close } = useMobileMenu()
@@ -9,21 +10,16 @@ export default function Header() {
     return (
         <>
             <header
-                className="
-          fixed top-0 left-0 right-0 z-40
-          h-16 bg-white/80 backdrop-blur
-          border-b border-slate-200
-        "
+                className="fixed top-0 left-0 right-0 z-40 h-16 bg-white/80 backdrop-blur border-b border-slate-200"
             >
-                <div
-                    className="
-            mx-auto max-w-6xl h-full px-6
-            flex items-center
-          "
-                >
+                <div className="mx-auto max-w-6xl h-full px-6 flex items-center">
                     {/* COMPANY */}
-                    <div className="font-semibold text-lg whitespace-nowrap">
-                        STO
+                    <div className="flex items-center">
+                        <img
+                            src={`${BASE_URL}/favicon.svg`}
+                            alt="Логотип мастерской"
+                            className="h-8 w-auto"
+                        />
                     </div>
 
                     <div className="w-16 hidden md:block" />
