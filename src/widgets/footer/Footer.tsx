@@ -7,7 +7,7 @@ import { MESSENGERS, SOCIAL_NETWORKS } from '@/shared/data/social'
 import {ROUTES} from "@/shared/constants";
 
 export default function Footer() {
-    const { t } = useTranslation()
+    const { t } = useTranslation('footer')
     const year = new Date().getFullYear()
 
     const linkBase =
@@ -144,7 +144,7 @@ export default function Footer() {
                                 </NavLink>
 
                                 <NavLink to={ROUTES.servicesMaintenance} className={linkBase}>
-                                    {t('footer.services.maintenance')}
+                                    {t('footer.services.maintenance.json')}
                                 </NavLink>
 
                                 <NavLink to={ROUTES.servicesMechanical} className={linkBase}>

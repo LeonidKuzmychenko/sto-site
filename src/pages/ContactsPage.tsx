@@ -5,7 +5,7 @@ import { MapPin, Phone, Clock } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 export function ContactsPage() {
-    const { t } = useTranslation()
+    const { t } = useTranslation('contacts')
 
     const phone = t('contactsPage.phone.value')
 

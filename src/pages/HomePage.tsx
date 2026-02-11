@@ -7,7 +7,7 @@ import { BASE_URL } from '@/shared/data/const'
 import { useTranslation } from 'react-i18next'
 
 export function HomePage() {
-    const { t } = useTranslation()
+    const { t } = useTranslation('home')
 
     return (
         <>

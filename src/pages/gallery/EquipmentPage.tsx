@@ -4,7 +4,7 @@ import { EQUIPMENT } from '@/shared/data/equipment'
 import { useTranslation } from 'react-i18next'
 
 export function EquipmentPage() {
-    const { t } = useTranslation()
+    const { t } = useTranslation('equipment')
 
     return (
         <>

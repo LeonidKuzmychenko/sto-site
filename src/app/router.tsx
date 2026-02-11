@@ -105,7 +105,7 @@ export const router = createBrowserRouter(
                     ),
                 },
                 {
-                    path: 'services/maintenance',
+                    path: 'services/maintenance.json',
                     element: (
                         <Suspense fallback={<PageFallback />}>
                             <MaintenancePage />

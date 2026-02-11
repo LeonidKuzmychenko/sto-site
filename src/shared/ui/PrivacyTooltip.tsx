@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 export function PrivacyTooltip() {
-    const { t } = useTranslation()
+    const { t } = useTranslation('footer')
     const [open, setOpen] = useState(false)
 
     return (

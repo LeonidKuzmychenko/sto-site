@@ -5,7 +5,7 @@ export const ROUTES = {
     // Services
     servicesStarters: '/services/starters',
     servicesGenerators: '/services/generators',
-    servicesMaintenance: '/services/maintenance',
+    servicesMaintenance: '/services/maintenance.json',
     servicesMechanical: '/services/mechanical',
     servicesDiagnostics: '/services/diagnostics',
     servicesPartsSelection: '/services/parts-selection',
