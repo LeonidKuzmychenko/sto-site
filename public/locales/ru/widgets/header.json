@@ -1,3 +1,24 @@
 {
-
+  "header": {
+    "logoAlt": "Логотип мастерской",
+    "phone": "+380 XX XXX XX XX",
+    "openMenu": "Открыть меню"
+  },
+  "nav": {
+    "home": "Главная",
+    "services": "Услуги",
+    "servicesStarters": "Ремонт стартеров",
+    "servicesGenerators": "Ремонт генераторов",
+    "servicesMaintenance": "Техническое обслуживание",
+    "servicesMechanical": "Слесарные работы",
+    "servicesDiagnostics": "Диагностика",
+    "servicesPartsSelection": "Подбор запчастей",
+    "servicesWiring": "Ремонт электропроводки",
+    "gallery": "Галерея",
+    "galleryEquipment": "Наше оборудование",
+    "galleryBeforeAfter": "До / После",
+    "paymentDelivery": "Оплата / Доставка",
+    "contacts": "Контакты",
+    "closeMenu": "Закрыть меню"
+  }
 }

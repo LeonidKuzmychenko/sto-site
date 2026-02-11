@@ -1,13 +1,18 @@
 import { Seo } from '@/shared/seo/Seo'
 import { Wrench, Settings, Clock } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 export function MechanicalWorksPage() {
+    const { t } = useTranslation('services/mechanical-works')
+
+    const whenIndexes = [0, 1, 2, 3]
+
     return (
         <>
             <Seo
-                title="Слюсарні роботи в Одесі"
-                description="Слюсарні роботи для автомобілів в Одесі: ремонт підвіски, заміна гальмівних елементів, вузловий ремонт."
-                canonical="https://example.com/services/mechanical"
+                title={t('mechanicalWorksPage.seo.title')}
+                description={t('mechanicalWorksPage.seo.description')}
+                canonical={t('mechanicalWorksPage.seo.canonical')}
             />
 
             <section className="py-16 pt-24">
@@ -15,108 +20,85 @@ export function MechanicalWorksPage() {
 
                     {/* H1 */}
                     <h1 className="mb-10 text-2xl font-semibold text-gray-900">
-                        Слюсарні роботи
+                        {t('mechanicalWorksPage.h1')}
                     </h1>
 
-                    {/* Вступ */}
+                    {/* Intro */}
                     <section className="mb-16 max-w-3xl space-y-4">
                         <p className="text-gray-700">
-                            Виконуємо широкий спектр слюсарних робіт для легкових
-                            та комерційних автомобілів.
+                            {t('mechanicalWorksPage.intro.p1')}
                         </p>
                         <p className="text-gray-700">
-                            Працюємо з ходовою частиною, гальмівною системою
-                            та механічними вузлами автомобіля.
+                            {t('mechanicalWorksPage.intro.p2')}
                         </p>
                     </section>
 
-                    {/* Основні послуги */}
+                    {/* Services */}
                     <section className="mb-16">
                         <h2 className="mb-6 text-xl font-semibold text-gray-900">
-                            Основні види робіт
+                            {t('mechanicalWorksPage.services.title')}
                         </h2>
 
                         <div className="grid gap-6 md:grid-cols-2">
 
-                            <div className="rounded border border-gray-200 p-6">
-                                <div className="mb-3 flex items-center gap-3">
-                                    <Wrench className="h-5 w-5 text-blue-600" />
-                                    <h3 className="font-medium text-gray-900">
-                                        Ремонт підвіски
-                                    </h3>
+                            {[
+                                { key: 'suspension', Icon: Wrench },
+                                { key: 'brakes', Icon: Settings },
+                                { key: 'belts', Icon: Wrench },
+                                { key: 'unitRepair', Icon: Clock }
+                            ].map(({ key, Icon }) => (
+                                <div
+                                    key={key}
+                                    className="rounded border border-gray-200 p-6"
+                                >
+                                    <div className="mb-3 flex items-center gap-3">
+                                        <Icon className="h-5 w-5 text-blue-600" />
+                                        <h3 className="font-medium text-gray-900">
+                                            {t(
+                                                `mechanicalWorksPage.services.${key}.title`
+                                            )}
+                                        </h3>
+                                    </div>
+                                    <p className="text-sm text-gray-600">
+                                        {t(
+                                            `mechanicalWorksPage.services.${key}.description`
+                                        )}
+                                    </p>
                                 </div>
-                                <p className="text-sm text-gray-600">
-                                    Заміна амортизаторів, шарових опор, сайлентблоків.
-                                </p>
-                            </div>
-
-                            <div className="rounded border border-gray-200 p-6">
-                                <div className="mb-3 flex items-center gap-3">
-                                    <Settings className="h-5 w-5 text-blue-600" />
-                                    <h3 className="font-medium text-gray-900">
-                                        Гальмівна система
-                                    </h3>
-                                </div>
-                                <p className="text-sm text-gray-600">
-                                    Заміна колодок, дисків, перевірка супортів.
-                                </p>
-                            </div>
-
-                            <div className="rounded border border-gray-200 p-6">
-                                <div className="mb-3 flex items-center gap-3">
-                                    <Wrench className="h-5 w-5 text-blue-600" />
-                                    <h3 className="font-medium text-gray-900">
-                                        Заміна ременів та роликів
-                                    </h3>
-                                </div>
-                                <p className="text-sm text-gray-600">
-                                    Роботи по привідних ременях та навісному обладнанню.
-                                </p>
-                            </div>
-
-                            <div className="rounded border border-gray-200 p-6">
-                                <div className="mb-3 flex items-center gap-3">
-                                    <Clock className="h-5 w-5 text-blue-600" />
-                                    <h3 className="font-medium text-gray-900">
-                                        Вузловий ремонт
-                                    </h3>
-                                </div>
-                                <p className="text-sm text-gray-600">
-                                    Демонтаж та відновлення окремих механічних вузлів.
-                                </p>
-                            </div>
+                            ))}
 
                         </div>
                     </section>
 
-                    {/* Коли звертатися */}
+                    {/* When */}
                     <section className="mb-16 max-w-3xl">
                         <h2 className="mb-6 text-xl font-semibold text-gray-900">
-                            Коли потрібні слюсарні роботи
+                            {t('mechanicalWorksPage.when.title')}
                         </h2>
 
                         <ul className="space-y-3 text-gray-700 list-disc pl-5">
-                            <li>Сторонні шуми в підвісці</li>
-                            <li>Збільшений гальмівний шлях</li>
-                            <li>Вібрація під час руху</li>
-                            <li>Нерівномірний знос шин</li>
+                            {whenIndexes.map((i) => (
+                                <li key={i}>
+                                    {t(`mechanicalWorksPage.when.items.${i}`)}
+                                </li>
+                            ))}
                         </ul>
                     </section>
 
                     {/* CTA */}
                     <section className="mb-16 max-w-2xl">
                         <h2 className="mb-4 text-xl font-semibold text-gray-900">
-                            Потрібен ремонт?
+                            {t('mechanicalWorksPage.cta.title')}
                         </h2>
                         <p className="mb-6 text-gray-700">
-                            Зв’яжіться з нами для консультації та запису.
+                            {t('mechanicalWorksPage.cta.description')}
                         </p>
 
                         <a
                             href="/contacts"
                             className="inline-flex items-center justify-center rounded bg-blue-600 px-6 py-3 text-white transition hover:bg-blue-700"
                         >
-                            Зв’язатися
+                            {t('mechanicalWorksPage.cta.button')}
                         </a>
                     </section>
 
