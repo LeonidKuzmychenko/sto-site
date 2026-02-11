@@ -13,7 +13,7 @@ type NavProps = {
 }
 
 export function Nav({ mobileOpen, onClose }: NavProps) {
-    const { t } = useTranslation('header')
+    const { t } = useTranslation('widgets/header')
     const location = useLocation()
 
     const isServicesActive = location.pathname.startsWith(ROUTES.services)

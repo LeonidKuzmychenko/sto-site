@@ -7,7 +7,7 @@ import { MESSENGERS, SOCIAL_NETWORKS } from '@/shared/data/social'
 import {ROUTES} from "@/shared/constants";
 
 export default function Footer() {
-    const { t } = useTranslation('footer')
+    const { t } = useTranslation('widgets/footer')
     const year = new Date().getFullYear()
 
     const linkBase =

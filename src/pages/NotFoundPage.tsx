@@ -4,7 +4,7 @@ import { ROUTES } from '@/shared/constants'
 import { Seo } from '../shared/seo/Seo'
 
 export function NotFoundPage() {
-    const { t } = useTranslation('notFound')
+    const { t } = useTranslation('404')
 
     return (
         <main className="mx-auto max-w-4xl px-4 py-24 text-center">

@@ -4,7 +4,7 @@ import { BEFORE_AFTER_CASES } from '@/shared/data/beforeAfter'
 import { useTranslation } from 'react-i18next'
 
 export function BeforeAfterPage() {
-    const { t } = useTranslation('beforeAfter')
+    const { t } = useTranslation('galleries/before-after')
 
     return (
         <>

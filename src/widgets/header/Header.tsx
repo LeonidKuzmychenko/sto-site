@@ -8,7 +8,7 @@ import { BASE_URL } from '@/shared/data/const'
 
 export default function Header() {
     const { mobileOpen, open, close } = useMobileMenu()
-    const { t } = useTranslation('header')
+    const { t } = useTranslation('widgets/header')
 
     const phone = t('header.phone')
 

@@ -3,7 +3,7 @@ import { Gauge, Laptop, Clock } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 export function DiagnosticsPage() {
-    const { t } = useTranslation('diagnostics')
+    const { t } = useTranslation('services/diagnostics')
 
     const whenNeededItems = [0, 1, 2, 3]
 
