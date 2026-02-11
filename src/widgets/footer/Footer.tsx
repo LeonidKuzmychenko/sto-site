@@ -1,9 +1,8 @@
-import { NavLink } from 'react-router-dom'
-import { Phone, MapPin } from 'lucide-react'
+import {NavLink} from 'react-router-dom'
+import {Phone, MapPin} from 'lucide-react'
 
-import { PrivacyTooltip } from '@/shared/ui'
-import { SocialLink } from '@/shared/ui'
-import { MESSENGERS, SOCIAL_NETWORKS } from '@/shared/data/social'
+import {PrivacyTooltip} from '@/shared/ui'
+import {MESSENGERS, SOCIAL_NETWORKS} from '@/shared/data/social'
 
 export default function Footer() {
     const year = new Date().getFullYear()
@@ -23,39 +22,93 @@ export default function Footer() {
                     <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
 
                         {/* КОНТАКТИ */}
-                        <div className="space-y-6">
+                        <div className="space-y-8">
                             <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-white">
                                 Контакти
                             </h3>
 
+                            {/* Телефон */}
                             <a
                                 href="tel:+380XXXXXXXXX"
                                 className="flex items-center gap-3 text-white transition-opacity hover:opacity-80"
                             >
-                                <Phone className="h-4 w-4 text-neutral-400" />
+                                <Phone className="h-4 w-4 text-neutral-400"/>
                                 <span className="text-sm font-medium tracking-wide">
-                  +380 XX XXX XX XX
-                </span>
+                                    +380 XX XXX XX XX
+                                </span>
                             </a>
 
+                            {/* Адреса */}
                             <div className="flex items-start gap-3 text-sm text-neutral-400 leading-6">
-                                <MapPin className="mt-1 h-4 w-4 shrink-0 text-neutral-500" />
+                                <MapPin className="mt-1 h-4 w-4 shrink-0 text-neutral-500"/>
                                 <p>
                                     Одеська обл., Овідіопольський р-н, с. Прилиманське,
                                     вул. Центральна (Жовтнева), 170
                                 </p>
                             </div>
 
-                            <div className="space-y-2 text-sm">
-                                {MESSENGERS.map((item) => (
-                                    <SocialLink key={item.label} {...item} />
-                                ))}
+                            {/* Месенджери */}
+                            <div className="space-y-3">
+                                <p className="text-xs uppercase tracking-wide text-neutral-500">
+                                    Месенджери
+                                </p>
+
+                                <div className="flex gap-3">
+                                    {MESSENGERS.map((item) => (
+                                        <a
+                                            key={item.label}
+                                            href={item.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={item.label}
+                                            className="
+                                                flex h-10 w-10 items-center justify-center
+                                                rounded-lg
+                                                bg-neutral-800/50
+                                                transition-colors
+                                                hover:bg-neutral-700
+                                            "
+                                        >
+                                            <img
+                                                src={item.icon}
+                                                alt=""
+                                                className="h-5 w-5 object-contain"
+                                            />
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
 
-                            <div className="space-y-2 text-sm">
-                                {SOCIAL_NETWORKS.map((item) => (
-                                    <SocialLink key={item.label} {...item} />
-                                ))}
+                            {/* Соціальні мережі */}
+                            <div className="space-y-3">
+                                <p className="text-xs uppercase tracking-wide text-neutral-500">
+                                    Соціальні мережі
+                                </p>
+
+                                <div className="flex gap-3">
+                                    {SOCIAL_NETWORKS.map((item) => (
+                                        <a
+                                            key={item.label}
+                                            href={item.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={item.label}
+                                            className="
+                                                flex h-10 w-10 items-center justify-center
+                                                rounded-lg
+                                                bg-neutral-800/50
+                                                transition-colors
+                                                hover:bg-neutral-700
+                                            "
+                                        >
+                                            <img
+                                                src={item.icon}
+                                                alt={item.label}
+                                                className="h-5 w-5 object-contain"
+                                            />
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
                         </div>
 
@@ -111,14 +164,15 @@ export default function Footer() {
                                 <p>Ремонт стартерів та генераторів</p>
                             </div>
 
-                            <PrivacyTooltip />
+                            <PrivacyTooltip/>
                         </div>
 
                     </div>
 
                     {/* НИЖНЯЯ ПОЛОСА */}
                     <div className="mt-12 border-t border-neutral-800 pt-6">
-                        <div className="flex flex-col gap-3 text-sm text-neutral-500 md:flex-row md:items-center md:justify-between">
+                        <div
+                            className="flex flex-col gap-3 text-sm text-neutral-500 md:flex-row md:items-center md:justify-between">
                             <div>© {year} СТО «Заказ». Всі права захищені.</div>
 
                             <a
