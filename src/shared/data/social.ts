@@ -1,12 +1,12 @@
-const BASE = '/sto-site/social'
+import {BASE_URL} from "@/shared/data/const.ts";
 
 export const MESSENGERS = [
-  { href: '#', icon: `${BASE}/telegram.svg`, alt: 'Telegram', label: 'Telegram' },
-  { href: '#', icon: `${BASE}/viber.svg`, alt: 'Viber', label: 'Viber' },
+  { href: '#', icon: `${BASE_URL}/social/telegram.avif`, alt: 'Telegram', label: 'Telegram' },
+  { href: '#', icon: `${BASE_URL}/social/viber.avif`, alt: 'Viber', label: 'Viber' },
 ] as const
 
 export const SOCIAL_NETWORKS = [
-  { href: '#', icon: `${BASE}/instagram.svg`, alt: 'Instagram', label: 'Instagram' },
-  { href: '#', icon: `${BASE}/tiktok.svg`, alt: 'TikTok', label: 'TikTok' },
-  { href: '#', icon: `${BASE}/youtube.svg`, alt: 'YouTube', label: 'YouTube' },
+  { href: '#', icon: `${BASE_URL}/social/instagram.avif`, alt: 'Instagram', label: 'Instagram' },
+  { href: '#', icon: `${BASE_URL}/social/tiktok.avif`, alt: 'TikTok', label: 'TikTok' },
+  { href: '#', icon: `${BASE_URL}/social/youtube.avif`, alt: 'YouTube', label: 'YouTube' },
 ] as const

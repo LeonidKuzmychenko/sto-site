@@ -3,6 +3,7 @@ import {ArrowRight, ChevronRight} from 'lucide-react'
 import { Seo } from '@/shared/seo/Seo'
 import { SectionLink } from '@/shared/ui'
 import { ROUTES } from '@/shared/constants'
+import {BASE_URL} from "@/shared/data/const.ts";
 
 export function HomePage() {
     return (
@@ -18,15 +19,21 @@ export function HomePage() {
                 <section
                     className="
                         relative flex min-h-screen
-                        items-start justify-center
-                        border-b bg-cover bg-center text-center
-                        pt-64
+                        items-start justify-center overflow-hidden
+                        border-b text-center pt-64
                     "
-                    style={{ backgroundImage: 'url(/sto-site/background.png)' }}
                 >
-                    <div className="absolute inset-0 bg-white/40" />
+                    {/* LCP image: in DOM for discoverability, fetchpriority for priority */}
+                    <img
+                        src={`${BASE_URL}/background.avif`}
+                        alt=""
+                        fetchPriority="high"
+                        className="absolute inset-0 h-full w-full object-cover object-center"
+                        aria-hidden
+                    />
+                    <div className="absolute inset-0 bg-white/40 z-[1]" />
 
-                    <div className="relative mx-auto max-w-3xl px-4">
+                    <div className="relative z-10 mx-auto max-w-3xl px-4">
                         <h1 className="mb-6 text-4xl font-semibold text-gray-900">
                             Ремонт стартерів та генераторів в Одесі
                         </h1>

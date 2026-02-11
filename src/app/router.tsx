@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 import { Layout } from '../pages/Layout'
+import {BASE_URL} from "@/shared/data/const.ts";
 
 const HomePage = lazy(() => import('../pages/HomePage').then((m) => ({ default: m.HomePage })))
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })))
@@ -25,12 +26,8 @@ export const router = createBrowserRouter(
         {
             path: '/',
             element: <Layout />,
-            // errorElement: (
-            //   <Suspense fallback={<PageFallback />}>
-            //     <NotFoundPage />
-            //   </Suspense>
-            // ),
             children: [
+                //Главная
                 {
                   index: true,
                   element: (
@@ -91,6 +88,7 @@ export const router = createBrowserRouter(
                       </Suspense>
                     ),
                 },
+                //Контакты
                 {
                     path: 'contacts',
                     element: (
@@ -99,6 +97,7 @@ export const router = createBrowserRouter(
                       </Suspense>
                     ),
                 },
+                //404
                 {
                     path: '*',
                     element: (
@@ -111,6 +110,6 @@ export const router = createBrowserRouter(
         },
     ],
     {
-        basename: '/sto-site/',
+        basename: `${BASE_URL}/`,
     }
 )
