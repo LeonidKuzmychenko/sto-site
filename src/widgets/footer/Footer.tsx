@@ -8,7 +8,7 @@ import { MESSENGERS, SOCIAL_NETWORKS } from '@/shared/data/social'
 export default function Footer() {
     const year = new Date().getFullYear()
 
-    const menuLink =
+    const linkBase =
         'text-neutral-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900 rounded-sm'
 
     return (
@@ -46,9 +46,14 @@ export default function Footer() {
                                 </p>
                             </div>
 
-                            {/* Месенджери */}
-                            <div className="footer-links list-none space-y-2 text-sm">
+                            <div className="space-y-2 text-sm">
                                 {MESSENGERS.map((item) => (
+                                    <SocialLink key={item.label} {...item} />
+                                ))}
+                            </div>
+
+                            <div className="space-y-2 text-sm">
+                                {SOCIAL_NETWORKS.map((item) => (
                                     <SocialLink key={item.label} {...item} />
                                 ))}
                             </div>
@@ -61,30 +66,41 @@ export default function Footer() {
                             </h3>
 
                             <nav className="grid gap-3 text-sm">
-                                <NavLink to="/" className={menuLink}>Головна</NavLink>
-                                <NavLink to="/services/starters" className={menuLink}>Ремонт стартерів</NavLink>
-                                <NavLink to="/services/generators" className={menuLink}>Ремонт генераторів</NavLink>
-                                <NavLink to="/gallery/equipment" className={menuLink}>Обладнання</NavLink>
-                                <NavLink to="/gallery/before-after" className={menuLink}>До / Після</NavLink>
-                                <NavLink to="/payment-delivery" className={menuLink}>Оплата і доставка</NavLink>
-                                <NavLink to="/contacts" className={menuLink}>Контакти</NavLink>
+                                <NavLink to="/" className={linkBase}>
+                                    Головна
+                                </NavLink>
+                                <NavLink to="/gallery/equipment" className={linkBase}>
+                                    Обладнання
+                                </NavLink>
+                                <NavLink to="/gallery/before-after" className={linkBase}>
+                                    До / Після
+                                </NavLink>
+                                <NavLink to="/payment-delivery" className={linkBase}>
+                                    Оплата і доставка
+                                </NavLink>
+                                <NavLink to="/contacts" className={linkBase}>
+                                    Контакти
+                                </NavLink>
                             </nav>
                         </div>
 
-                        {/* СОЦМЕРЕЖІ */}
+                        {/* ПОСЛУГИ */}
                         <div className="space-y-6 lg:border-l lg:border-neutral-800 lg:pl-8">
                             <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-white">
-                                Соцмережі
+                                Послуги
                             </h3>
 
-                            <div className="footer-links list-none space-y-2 text-sm">
-                                {SOCIAL_NETWORKS.map((item) => (
-                                    <SocialLink key={item.label} {...item} />
-                                ))}
-                            </div>
+                            <nav className="grid gap-3 text-sm">
+                                <NavLink to="/services/starters" className={linkBase}>
+                                    Ремонт стартерів
+                                </NavLink>
+                                <NavLink to="/services/generators" className={linkBase}>
+                                    Ремонт генераторів
+                                </NavLink>
+                            </nav>
                         </div>
 
-                        {/* ІНФО */}
+                        {/* ІНФОРМАЦІЯ */}
                         <div className="space-y-6 lg:border-l lg:border-neutral-800 lg:pl-8">
                             <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-white">
                                 Інформація
@@ -97,8 +113,10 @@ export default function Footer() {
 
                             <PrivacyTooltip />
                         </div>
+
                     </div>
 
+                    {/* НИЖНЯЯ ПОЛОСА */}
                     <div className="mt-12 border-t border-neutral-800 pt-6">
                         <div className="flex flex-col gap-3 text-sm text-neutral-500 md:flex-row md:items-center md:justify-between">
                             <div>© {year} СТО «Заказ». Всі права захищені.</div>
