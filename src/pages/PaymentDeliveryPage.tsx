@@ -12,7 +12,7 @@ import {
 import { useTranslation } from 'react-i18next'
 
 export function PaymentDeliveryPage() {
-    const { t } = useTranslation()
+    const { t } = useTranslation('payment-delivery')
 
     return (
         <>

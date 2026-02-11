@@ -13,7 +13,7 @@ type NavProps = {
 }
 
 export function Nav({ mobileOpen, onClose }: NavProps) {
-    const { t } = useTranslation()
+    const { t } = useTranslation('widgets/header')
     const location = useLocation()
 
     const isServicesActive = location.pathname.startsWith(ROUTES.services)
@@ -39,7 +39,6 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
 
     const DesktopNav = (
         <nav className="hidden md:flex items-center gap-8 h-full flex-1">
-
             <NavLink
                 to={ROUTES.home}
                 end
@@ -54,7 +53,9 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
             <div className="relative group h-full flex items-center">
                 <NavLink
                     to={ROUTES.services}
-                    className={`${navItem} ${isServicesActive ? activeUnderline : ''}`}
+                    className={`${navItem} ${
+                        isServicesActive ? activeUnderline : ''
+                    }`}
                 >
                     {t('nav.services')}
                     <ChevronDown
@@ -65,7 +66,8 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                     />
                 </NavLink>
 
-                <div className="absolute left-0 top-full hidden group-hover:block min-w-52 rounded-md border bg-white shadow-sm">
+                <div className="absolute left-0 top-full hidden group-hover:block min-w-56 rounded-md border bg-white shadow-sm">
+
                     <NavLink
                         to={ROUTES.servicesStarters}
                         className={({ isActive }) =>
@@ -87,6 +89,62 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                     >
                         {t('nav.servicesGenerators')}
                     </NavLink>
+
+                    <NavLink
+                        to={ROUTES.servicesMaintenance}
+                        className={({ isActive }) =>
+                            `block px-4 py-2 hover:bg-gray-100 ${
+                                isActive ? 'bg-gray-100 font-semibold' : ''
+                            }`
+                        }
+                    >
+                        {t('nav.servicesMaintenance')}
+                    </NavLink>
+
+                    <NavLink
+                        to={ROUTES.servicesMechanical}
+                        className={({ isActive }) =>
+                            `block px-4 py-2 hover:bg-gray-100 ${
+                                isActive ? 'bg-gray-100 font-semibold' : ''
+                            }`
+                        }
+                    >
+                        {t('nav.servicesMechanical')}
+                    </NavLink>
+
+                    <NavLink
+                        to={ROUTES.servicesDiagnostics}
+                        className={({ isActive }) =>
+                            `block px-4 py-2 hover:bg-gray-100 ${
+                                isActive ? 'bg-gray-100 font-semibold' : ''
+                            }`
+                        }
+                    >
+                        {t('nav.servicesDiagnostics')}
+                    </NavLink>
+
+                    <NavLink
+                        to={ROUTES.servicesPartsSelection}
+                        className={({ isActive }) =>
+                            `block px-4 py-2 hover:bg-gray-100 ${
+                                isActive ? 'bg-gray-100 font-semibold' : ''
+                            }`
+                        }
+                    >
+                        {t('nav.servicesPartsSelection')}
+                    </NavLink>
+
+                    <NavLink
+                        to={ROUTES.servicesWiring}
+                        className={({ isActive }) =>
+                            `block px-4 py-2 hover:bg-gray-100 ${
+                                isActive ? 'bg-gray-100 font-semibold' : ''
+                            }`
+                        }
+                    >
+                        {t('nav.servicesWiring')}
+                    </NavLink>
+
                 </div>
             </div>
 
@@ -94,7 +152,9 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
             <div className="relative group h-full flex items-center">
                 <NavLink
                     to={ROUTES.gallery}
-                    className={`${navItem} ${isGalleryActive ? activeUnderline : ''}`}
+                    className={`${navItem} ${
+                        isGalleryActive ? activeUnderline : ''
+                    }`}
                 >
                     {t('nav.gallery')}
                     <ChevronDown
@@ -170,6 +230,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                         {t('nav.home')}
                     </NavLink>
 
+                    {/* SERVICES */}
                     <div>
                         <button
                             onClick={() => setServicesOpen(v => !v)}
@@ -186,16 +247,40 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
 
                         {servicesOpen && (
                             <div className="mt-4 ml-4 flex flex-col gap-4 text-sm text-gray-700">
+
                                 <NavLink to={ROUTES.servicesStarters} onClick={onClose}>
                                     {t('nav.servicesStarters')}
                                 </NavLink>
+
                                 <NavLink to={ROUTES.servicesGenerators} onClick={onClose}>
                                     {t('nav.servicesGenerators')}
                                 </NavLink>
+
+                                <NavLink to={ROUTES.servicesMaintenance} onClick={onClose}>
+                                    {t('nav.servicesMaintenance')}
+                                </NavLink>
+
+                                <NavLink to={ROUTES.servicesMechanical} onClick={onClose}>
+                                    {t('nav.servicesMechanical')}
+                                </NavLink>
+
+                                <NavLink to={ROUTES.servicesDiagnostics} onClick={onClose}>
+                                    {t('nav.servicesDiagnostics')}
+                                </NavLink>
+
+                                <NavLink to={ROUTES.servicesPartsSelection} onClick={onClose}>
+                                    {t('nav.servicesPartsSelection')}
+                                </NavLink>
+
+                                <NavLink to={ROUTES.servicesWiring} onClick={onClose}>
+                                    {t('nav.servicesWiring')}
+                                </NavLink>
+
                             </div>
                         )}
                     </div>
 
+                    {/* GALLERY */}
                     <div>
                         <button
                             onClick={() => setGalleryOpen(v => !v)}
@@ -229,6 +314,7 @@ export function Nav({ mobileOpen, onClose }: NavProps) {
                     <NavLink to={ROUTES.contacts} onClick={onClose}>
                         {t('nav.contacts')}
                     </NavLink>
+
                 </nav>
             </div>,
             document.body

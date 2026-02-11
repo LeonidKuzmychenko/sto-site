@@ -60,7 +60,7 @@ src/
 │
 ├── shared/
 │   ├── providers/
-│   │   ├── index.ts       # инициализация i18n
+│   │   ├── i18n.ts       # инициализация i18n
 │   │   └── locales/
 │   │       ├── ua.json    # украинский (default)
 │   │       └── ru.json    # русский
