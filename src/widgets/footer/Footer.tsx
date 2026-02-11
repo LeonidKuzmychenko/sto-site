@@ -144,7 +144,7 @@ export default function Footer() {
                                 </NavLink>
 
                                 <NavLink to={ROUTES.servicesMaintenance} className={linkBase}>
-                                    {t('footer.services.maintenance.json')}
+                                    {t('footer.services.maintenance')}
                                 </NavLink>
 
                                 <NavLink to={ROUTES.servicesMechanical} className={linkBase}>
