@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/sto-site/(.*)",
-      "destination": "/sto-site/index.html"
+      "destination": "/index.html"
     }
   ]
 }
