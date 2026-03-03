@@ -13,7 +13,7 @@ export default function Footer() {
     const linkBase =
         'text-neutral-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900 rounded-sm'
 
-    const phone = t('footer.contacts.title')
+    const phone = t('footer.contacts.phone')
 
 
     return (
