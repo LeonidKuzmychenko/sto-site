@@ -38,5 +38,11 @@ export const EQUIPMENT: EquipmentItem[] = [
         descriptionKey: 'equipmentPage.equipment.kdp200.description',
         image: `${BASE_URL}/equipment/KDP200.avif`,
     },
+    {
+        id: 6,
+        titleKey: 'equipmentPage.equipment.с1е61вм.title',
+        descriptionKey: 'equipmentPage.equipment.с1е61вм.description',
+        image: `${BASE_URL}/equipment/с1е61вм.avif`,
+    },
 ]
 

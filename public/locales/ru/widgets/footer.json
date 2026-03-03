@@ -2,7 +2,7 @@
   "footer": {
     "contacts": {
       "title": "Контакты",
-      "phone": "+380 XX XXX XX XX",
+      "phone": "+380 (50) 079 71 82",
       "address": "Одесская обл., Овидиопольский р-н, с. Прилиманское, ул. Центральная (Жовтневая), 170",
       "messengers": "Мессенджеры",
       "social": "Социальные сети"
@@ -27,11 +27,11 @@
     },
     "info": {
       "title": "Информация",
-      "company": "СТО «?»",
+      "company": "СТО",
       "description": "Ремонт стартеров и генераторов"
     },
     "bottom": {
-      "copyright": "СТО «?». Все права защищены.",
+      "copyright": "СТО. Все права защищены.",
       "createdBy": "Created by Leonid Kuzmychenko"
     }
   },
