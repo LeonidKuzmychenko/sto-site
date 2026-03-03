@@ -1,1 +1,1 @@
-export const BASE_URL = '/sto-site'
+export const BASE_URL = ''
