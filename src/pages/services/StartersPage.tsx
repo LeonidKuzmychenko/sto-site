@@ -62,7 +62,6 @@ export function StartersPage() {
                             {[
                                 { key: 'diagnostics', Icon: Wrench },
                                 { key: 'brushes', Icon: Wrench },
-                                { key: 'winding', Icon: Wrench },
                                 { key: 'testing', Icon: Clock }
                             ].map(({ key, Icon }) => (
                                 <div
