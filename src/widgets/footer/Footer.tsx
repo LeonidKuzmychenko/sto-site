@@ -13,6 +13,9 @@ export default function Footer() {
     const linkBase =
         'text-neutral-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900 rounded-sm'
 
+    const phone = t('footer.contacts.title')
+
+
     return (
         <footer
             className="mt-auto border-t border-neutral-800 bg-neutral-900 text-neutral-300"
@@ -30,12 +33,12 @@ export default function Footer() {
                             </h3>
 
                             <a
-                                href="tel:+380XXXXXXXXX"
+                                href={`tel:${phone.replace(/\s/g, '')}`}
                                 className="flex items-center gap-3 text-white transition-opacity hover:opacity-80"
                             >
                                 <Phone className="h-4 w-4 text-neutral-400" />
                                 <span className="text-sm font-medium tracking-wide">
-                                    {t('footer.contacts.phone')}
+                                    {phone}
                                 </span>
                             </a>
 
